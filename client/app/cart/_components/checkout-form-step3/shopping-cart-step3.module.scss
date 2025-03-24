@@ -1,0 +1,71 @@
+  .j-addressTitle{
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .j-adDetailtitle{
+    font-weight: 500;
+  }
+  .j-adDetailContent{
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+  }
+  .j-payStep {
+    padding: 22px;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+  .totalAmount{
+    color: #e58e41;
+  }
+  .j-payTitle{
+    color: #003150;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .j-creditCardInput input{
+    border-radius: 20px;
+  }
+  
+  .j-needCheckBox span{
+    color: red;
+  }
+  .j-mustWrite{
+    color: red;
+  }
+
+  .j-Checkout {
+    height: 50px;
+    border-radius: 50px;
+    background: #003150;
+  }
+
+  .j-Checkout .j-btn {
+    &:not(.j-payStep){
+      border: none;
+    }
+  
+    &:focus{
+      border: none;
+    }
+    &:active{
+      border: none;
+      color: #fff;
+    }
+    color: #FFF;
+    font-size: 14px;
+  }
+
+  @media(max-width:390px) {
+    .j-payStep {
+      width: 390px;
+    }
+  }

@@ -1,0 +1,48 @@
+.modal {
+  background: white;
+  padding: 16px;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn {
+  margin: 6rem 0 1rem 0;
+  margin-left: 1px;
+  button{
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: var(--primary-color);
+  }
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+  }
+}
+
+.modal h2 {
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.modal-content {
+  scroll-behavior: smooth;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.custom-progress {
+  background-color: var(--gray--100) !important;
+}

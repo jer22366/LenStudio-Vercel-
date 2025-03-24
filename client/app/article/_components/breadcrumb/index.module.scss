@@ -1,0 +1,32 @@
+.y-container{
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 4px;
+}
+/* 麵包屑導航 */
+.y-breadcrumb{
+  margin-bottom: 50px;
+  a{
+    color: #8F8F8F;
+  }
+  span{
+    color:#8F8F8F;
+  }
+  p{
+    color: #143146;
+  }
+  padding-top: 150px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 990px){
+  .y-breadcrumb{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px){
+  .y-container{
+    padding-left: 5px;
+  }
+}

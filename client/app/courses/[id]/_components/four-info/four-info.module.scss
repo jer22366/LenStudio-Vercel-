@@ -1,0 +1,102 @@
+.four-course-info-wrapper {
+  position: relative;
+}
+.four-course-info {
+  position: absolute;
+  width: 100%;
+  bottom: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 120px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 0 100px;
+  /* margin-bottom: 50px; */
+}
+
+.four-course-info .line {
+  height: 60px;
+  border-left: 1px solid var(--line-color-gray-light2);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating p {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.rating-star {
+  color: var(--warning-color);
+}
+
+.info-content .title-text {
+  color: var(--line-color-gray);
+  font-size: 0.9rem;
+}
+
+.info-content .content-text {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.info-content a {
+  text-decoration: none;
+}
+
+/* 響應式樣式 */
+
+@media screen and (max-width: 992px) {
+  /* 四大簡介 */
+  .four-course-info {
+    padding: 0 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* 四大課程簡介 */
+  .four-course-info-container {
+    background-color: var(--bg-color-gray);
+  }
+  .four-course-info-wrapper {
+  }
+
+  .four-course-info {
+    position: static;
+    width: 100%;
+    bottom: -60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--bg-color-gray);
+    height: auto;
+    box-shadow: none;
+    padding: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .four-course-info .line {
+    display: none;
+  }
+
+  .four-course-info .info-content:nth-child(1) {
+    padding-right: 1.5rem;
+  }
+
+  .info-content {
+    padding-top: 1.5rem;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .four-course-info-container {
+    padding: 0 16px;
+  }
+}

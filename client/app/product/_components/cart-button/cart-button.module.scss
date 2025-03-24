@@ -1,0 +1,27 @@
+.cartButton {
+  margin-top: 10px;
+  background-color: #e58e41;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 3px 15px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+  z-index: 1;
+  width: 100%;
+  text-align: center !important;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+.swalPopupAdjust {
+  margin-top: 80px !important;
+  background-color: #143146 !important;
+  color: white !important;
+}
+
+

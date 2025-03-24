@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Anton&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet');
+/* ---section banner--- */
+
+.course-banner {
+  position: relative;
+  background-color: var(--primary-color);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+.banner-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  padding: 50px 60px;
+}
+
+.banner-title p {
+  font-size: 1rem;
+  margin: 0;
+  display: block;
+}
+
+.banner-img-list {
+  display: flex;
+}
+
+.swiper-slide {
+  width: 550px !important;
+  height: calc(550px * 9 / 16) !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blurText {
+  font-family: 'Bungee', sans-serif;
+  position: absolute !important;
+  top: 100px !important;
+  right: -10px !important;
+  color: var(--bg-color-gray);
+  font-size: 7rem;
+  font-weight: 700;
+  z-index: 100;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(128, 173, 255, 0.7),
+    -2px -2px 4px rgba(214, 193, 160, 0.7), 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+// .eGlitchText {
+//   position: absolute !important;
+//   top: 80px !important;
+//   right: 0 !important;
+//   z-index: 100;
+// }
+
+/* 響應式樣式 */
+@media screen and (max-width: 1200px) {
+  .blurText {
+    font-size: 5rem;
+    top: 130px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .blurText {
+    font-size: 4rem;
+    top: 100px !important;
+  }
+  .banner-title {
+    padding: 30px 60px;
+  }
+  .swiper-slide {
+    width: 400px !important;
+    height: calc(400px * 9 / 16) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blurText {
+    font-size: 3rem;
+    top: 120px !important;
+    right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .blurText {
+    font-size: 1.8rem;
+    top: 120px !important;
+    text-shadow: 1px 1px 2px rgba(128, 173, 255, 0.7),
+      -1px -1px 2px rgba(214, 193, 160, 0.7), 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  .container {
+    margin: 0;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .banner-title {
+    padding: 20px 32px;
+  }
+
+  .swiper-slide {
+    width: 300px !important;
+    height: calc(300px * 9 / 16) !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .blurText {
+    font-size: 1.8rem;
+    top: 290px !important;
+  }
+}

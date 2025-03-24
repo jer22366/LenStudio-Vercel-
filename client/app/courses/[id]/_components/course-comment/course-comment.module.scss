@@ -1,0 +1,151 @@
+.course-comment {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 1.2rem;
+  height: 100%;
+}
+
+.modal-comment {
+  margin: 1rem;
+}
+
+.comment-card-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commenter {
+  display: flex;
+  gap: 10px;
+}
+
+.commenter-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.commenter-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.commenter-time {
+  color: var(--line-color-gray);
+  font-size: 0.9rem;
+}
+
+.comment-card-content {
+  margin-top: 1rem;
+}
+
+.comment-card-content .content {
+  margin-top: 1rem;
+  color: var(--line-color-gray);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  max-height: 3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 當 isExpanded 為 true 時，展開所有內容 */
+.comment-card-content .content.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+  max-height: 500px;
+  overflow: visible;
+  
+}
+
+.go-page-link {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: end;
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.show-all-btn {
+  text-decoration: none;
+  color: var(--secondary-color-med);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.all-comment-link a {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.hr {
+  margin-top: 2rem;
+}
+
+/* 響應式樣式 */
+
+@media screen and (max-width: 768px) {
+  /*--- 評價 --- */
+  .course-rating {
+    display: block;
+  }
+
+  .rating-right {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .progress {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .title-block {
+    display: none;
+  }
+
+  /* --- 評價 --- */
+  .section-detail-title {
+    margin-top: 2rem;
+  }
+
+  .go-page-link {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .total-score {
+    display: none;
+  }
+  .score-area {
+    margin-left: 0;
+  }
+
+  .score-area .score {
+    font-size: 1.2rem;
+  }
+
+  .rating-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .star-area {
+    margin-left: 8px;
+  }
+
+  .all-comment-link {
+    margin: 0.5rem;
+  }
+}

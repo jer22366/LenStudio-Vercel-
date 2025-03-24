@@ -1,0 +1,768 @@
+.y-all-comment-btn button {
+  border: none;
+  background-color: #ffffff00;
+  color: #7e7267;
+  font-size: 16px;
+}
+
+// 修復 .y-sort-dropdown 的括號問題
+.y-sort-dropdown {
+  select {
+    background-color: #ffffff00;
+    width: 15%;
+    border-radius: 25px;
+    border: 2px solid #7e726700;
+    margin-top: 15px;
+    transition: width 0.3s ease; // 添加過渡效果，使寬度變化更平滑
+  }
+
+  select:focus {
+    box-shadow: 0 0 15px #7e7267;
+    border: 2px solid #7e7267;
+  }
+} // 只需要一個括號來結束 .y-sort-dropdown
+
+.y-reply {
+  border-top: 1px solid #000;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+.y-reply-user-profile {
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+.y-reply-img img {
+  border-radius: 5px;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.y-reply-time-like {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; // 防止換行
+
+  button {
+    border: none;
+    background-color: transparent;
+    border-radius: 25px;
+    padding: 3px 3px; // 減少內邊距
+    margin-right: 3px; // 減少按鈕間距
+    display: flex;
+    align-items: center;
+    gap: 2px !important; // 強制按鈕之間的間距
+    flex-wrap: nowrap; // 防止換行
+  }
+
+  // 修正按鈕內部排列
+  button {
+    margin: 0 !important; // 移除所有Bootstrap外邊距
+    padding: 3px 6px; // 統一內邊距
+    display: inline-flex; // 使用inline-flex確保緊湊排列
+    align-items: center;
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin: 0; // 移除圖片邊距
+    }
+
+    span {
+      margin-left: 4px; // 統一設置文字和圖標的間距
+      font-size: 13px;
+    }
+  }
+
+  // 特別處理回覆按鈕，移除額外的左邊距
+  .y-btn-reply-in-reply .reply-text {
+    margin-left: 4px !important; // 覆蓋其他可能的樣式
+  }
+
+  // 移除所有Bootstrap的間距類影響
+  .ms-sm-0,
+  .ms-1,
+  .me-3 {
+    margin: 0 !important;
+  }
+}
+.y-reply-time-like button:focus {
+  border: none;
+  background-color: #adadad00;
+  border-radius: 25px;
+  padding: 5px 5px;
+}
+.y-btn-reply-in-reply {
+  color: #000;
+  font-size: 13px; // 縮小文字大小
+
+  img {
+    width: 18px; // 縮小圖示
+    height: 18px;
+  }
+
+  .reply-text {
+    margin-left: 2px; // 減少文字與圖示間距
+    white-space: nowrap; // 防止文字換行
+  }
+  &:hover {
+    img {
+      content: url('/images/article/reply-hover.svg'); // 替換為 hover 狀態的 SVG
+    }
+    .reply-text {
+      color: #838383; // 替換為 hover 狀態的文字顏色
+    }
+  }
+
+  &:active {
+    img {
+      content: url('/images/article/reply-active.svg'); // 替換為 active 狀態的 SVG
+    }
+    .reply-text {
+      color: #7e7267; // 替換為 active 狀態的文字顏色
+    }
+  }
+}
+
+
+.y-reply-content {
+  max-width: 780px;
+  word-wrap: break-word;
+  position: relative;
+
+  //編輯輸入框
+  textarea {
+    border-radius: 15px;
+    padding: 8px 5px 0 10px;
+    width: 100%;
+    overflow: wrap;
+    resize: none;
+    box-sizing: border-box;
+  }
+}
+// Modal 相關樣式
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  width: 750px;
+  background-color: rgb(233, 233, 233);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editing-buttons {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.editingTextArea {
+  width: 100%;
+  border-radius: 15px;
+  padding: 8px 5px 0 10px;
+  min-height: 100px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+//編輯回復按紐
+.btn-editor-reply-save {
+  background-color: transparent;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 5px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.active {
+      transform: scale(1.5);
+    }
+  }
+}
+
+.editedMark {
+  font-size: 0.85em;
+  color: #888;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+.y-reply-content-nested {
+  max-width: 100%;
+  word-wrap: break-word;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.y-reply-content-nested-out {
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  img,
+  video {
+    max-width: 100%; // 確保媒體不會超過容器
+    width: auto; // 讓寬度自適應
+    height: auto; // 保持比例
+    // border-radius: 6px;
+  }
+}
+
+.y-reply-content-nested-out img,
+.y-reply-content-nested-out video {
+  max-width: 100%;
+}
+
+.moreBtnReply {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+
+  .more-btn {
+    padding: 2px !important;
+  }
+}
+
+.more-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  /* 防止按鈕縮小 */
+  &:active,
+  &:focus {
+    transform: none !important;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    outline: none !important;
+  }
+
+  /* 確保按鈕內的圖示不會縮小 */
+  img {
+    width: 16px;
+    height: 16px;
+    transition: none; /* 防止任何過渡效果 */
+
+    &:active,
+    &:focus {
+      transform: none !important;
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+}
+
+.moreOptions {
+  display: none;
+  position: absolute;
+  top: -5px; // 改為與按鈕頂部對齊
+  right: 100%; // 改為出現在按鈕左側
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 80px;
+  margin-right: 5px; // 加入右側間距
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px; // 設定箭頭較上方
+    left: 100%; // 從右側指向按鈕
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent white; // 左指箭頭
+  }
+}
+
+// 添加新的 show 類別來控制顯示
+.moreOptions.show {
+  display: block;
+}
+
+.moreOption {
+  padding: 5px 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  .iconHover {
+    display: none;
+  }
+
+  &:hover {
+    background-color: #7e7267;
+    color: white;
+
+    .iconOriginal {
+      display: none;
+    }
+    .iconHover {
+      display: block;
+    }
+  }
+}
+
+.moreOptionDelete {
+  padding: 5px 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #d33;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  .iconHoverDelete {
+    display: none;
+  }
+
+  &:hover {
+    background-color: #d33;
+    color: white;
+
+    .iconOriginalDelete {
+      display: none;
+    }
+    .iconHoverDelete {
+      display: block;
+    }
+  }
+}
+
+// 移除圖片上下的 margin
+.moreBtnReply img {
+  margin: 0;
+}
+
+.y-hidden-reply-btn button {
+  border: none;
+  background-color: #ffffff00;
+  color: #7e7267;
+}
+.reply-text {
+  color: #1e3c54;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+/* Instagram 風格彈窗 */
+.igModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.igModalContent {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+.igModalOption {
+  padding: 16px;
+  text-align: center;
+  font-weight: 400;
+  border-bottom: 1px solid #efefef;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.igModalOption:hover {
+  background-color: #f8f8f8;
+}
+
+.igModalDanger {
+  color: #ed4956;
+  font-weight: bold;
+}
+
+.igModalCancel {
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 修復媒體查詢部分
+// 添加中等螢幕的媒體查詢，平滑過渡
+@media screen and (max-width: 1200px) and (min-width: 901px) {
+  .y-sort-dropdown select {
+    width: 25%;
+  }
+}
+
+/* 大螢幕(≥990px)下的按鈕懸停效果 */
+@media screen and (min-width: 990px) {
+  .moreBtnReply {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: auto; /* 確保即使隱藏也能接收點擊事件 */
+  }
+
+  .commentHovered .moreBtnReply {
+    opacity: 1;
+  }
+}
+
+/* 小螢幕(<990px)下按鈕始終顯示 */
+@media screen and (max-width: 989px) {
+  .moreBtnReply {
+    opacity: 1 !important;
+  }
+}
+
+// 修復 900px 媒體查詢的括號結構
+@media screen and (max-width: 900px) {
+  .y-sort-dropdown select {
+    width: 35%;
+    max-width: 200px; // 設置最大寬度，避免在極小螢幕上過寬
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .y-reply-time-like {
+    h6 {
+      font-size: 12px;
+    }
+    button {
+      padding: 2px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+
+      span {
+        font-size: 12px;
+        min-width: 25px;
+      }
+    }
+    .y-all-comment-btn button {
+      font-size: 14px !important;
+      // padding: 4px 12px;
+    }
+    .y-hidden-reply-btn button {
+      font-size: 14px !important;
+      // padding: 4px 12px;
+    }
+    .y-btn-reply-in-reply {
+      font-size: 12px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .y-reply-time-like {
+    h6 {
+      font-size: 10px !important;
+      margin: 0 0 !important;
+    }
+  }
+  .y-sort-dropdown select {
+    width: 40%;
+  }
+
+  .y-reply-user-profile img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .y-reply-user-name {
+    font-size: 16px;
+  }
+
+  .y-reply-img img {
+    width: 100%;
+  }
+
+  .y-reply-time-like h6 {
+    font-size: 12px;
+  }
+
+  .y-reply-time-like {
+    justify-content: space-between;
+  }
+
+  .y-btn-reply-in-reply span {
+    font-size: 12px;
+  }
+
+  .y-hidden-reply-btn button {
+    font-size: 12px !important;
+    // padding: 4px 12px;
+  }
+
+  .more-btn {
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+
+    img {
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+
+  /* 修復可能的交互問題 */
+  .moreBtnReply {
+    height: 20px !important;
+  }
+}
+
+.y-reply-img {
+  margin: 6px 0; // 減少上下邊距
+  max-width: 100%;
+
+  img,
+  video {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+}
+
+/* 優化按鈕排列 */
+.mb-like-reply {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  // gap: 2px; /* 減少按鈕間距 */
+}
+
+/* 響應式調整 */
+@media screen and (max-width: 768px) {
+  /* 點讚計數器樣式調整 */
+  .like-counter {
+    display: inline-block;
+    width: auto !important; // 移除固定寬度
+    text-align: center;
+    font-size: 13px;
+    padding: 0;
+    margin-left: 4px; // 統一只用左邊距
+  }
+
+  .reply-text {
+    font-size: 11px !important; /* 將回覆字體縮小 */
+    white-space: nowrap;
+  }
+  .y-reply-content {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+}
+
+// 嵌套回覆輸入框容器
+.nested-reply-input-container {
+  width: 100%;
+  max-width: 850px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  position: relative;
+
+
+
+  /* 根據不同屏幕尺寸自動調整 */
+  @media screen and (max-width: 991px) {
+    max-width: 90%;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 95%;
+  }
+
+  @media screen and (max-width: 576px) {
+    max-width: 100%;
+  }
+}
+
+/* 確保嵌套回覆區域內容不溢出 */
+.y-reply-content-nested-out {
+  overflow-wrap: break-word;
+
+  /* 內部輸入框容器 */
+  .fade-in {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* 留言文字和標記大小調整 */
+.y-reply-text {
+  font-size: 16px; /* 默認留言文字大小 */
+}
+
+.editedMark {
+  font-size: 0.85em; /* 原始大小 */
+}
+
+/* 加入到現有媒體查詢或創建新的 */
+@media screen and (max-width: 1200px) {
+  .y-reply-text {
+    font-size: 15px;
+  }
+
+  .editedMark {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .y-reply-text {
+    font-size: 14px;
+  }
+
+  .editedMark {
+    font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .y-reply-text {
+    font-size: 14px;
+  }
+
+  .editedMark {
+    font-size: 0.75em;
+  }
+  .y-reply-content-nested-out{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .y-reply-text {
+    font-size: 13px;
+  }
+
+  .editedMark {
+    font-size: 0.75em;
+  }
+
+  /* 調整時間文字大小 */
+  .y-reply-time-like h6 {
+    font-size: 12px !important;
+  }
+  .y-reply-content {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+  .y-reply-content-nested-out{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .y-reply-text {
+    font-size: 12px;
+  }
+
+  .editedMark {
+    font-size: 0.8em;
+    margin-left: 2px; /* 減少空間 */
+  }
+
+  .y-reply-time-like h6 {
+    font-size: 10px !important;
+    margin: 0 !important;
+  }
+
+  /* 輸入框內文字大小調整 */
+  .editingTextArea {
+    font-size: 12px;
+  }
+  .y-reply-content {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .y-reply-content-nested-out{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}

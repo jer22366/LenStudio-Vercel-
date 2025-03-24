@@ -1,0 +1,91 @@
+.j-page-wrapper{
+  min-height: 93vh;
+}
+
+
+.j-shoppingCartBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.j-input-box{
+  background-color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.j-nextBox{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.j-ckBox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #003150;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 當 checkbox 被選取時 */
+.j-ckBox:checked {
+  background-color: #003150;
+  border-color: #003150;
+}
+
+/* 加上勾勾圖示 */
+.j-ckBox:checked::after {
+  content: '✔';
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.j-delAll:active,
+.j-delAll:focus,
+.j-delAll:not(.j-cartItem)
+{
+  border: none;
+}
+
+//mobile 還在用
+.j-itemBox{
+  background-color: #003150;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.j-cartTitle{
+  background-color: #003150;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+}
+
+@media(max-width:576px){
+  .j-shoppingCartBox{
+    width: 100%;
+  }
+  .j-cartItemBox{
+    width: auto;
+  }
+}
+
+@media(max-width:390px){
+  .j-cartItemBox{
+    width: auto;
+  }
+  .j-shoppingCartBox{
+    width: 100%;
+  }
+}

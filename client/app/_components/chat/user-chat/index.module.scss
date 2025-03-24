@@ -1,0 +1,1038 @@
+@use 'sass:color';
+@import '../shared/_variables';
+@import '../shared/_mixins';
+
+.chatWidgetContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+// 聊天按鈕容器
+.chatButtonWrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+// 聊天按鈕樣式
+.chatButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #0073e6;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  &:hover {
+    transform: scale(1.05);
+    background-color: #0066cc;
+  }
+  
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+.chatButtonEnter {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.chatButtonEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+
+// 聊天窗口主容器
+.chatWindow {
+  position: fixed;
+  bottom: 90px;         // 保持統一
+  right: 20px;
+  width: 390px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-origin: bottom right;
+}
+
+.chatWindowEnter {
+  opacity: 0;
+  transform: scale(0.2);
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  transform-origin: bottom right; // 與 admin 保持一致
+}
+.chatWindowEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  border-radius: 15px;  // 聊天室的圓角
+  width: 390px;
+  height: 500px;
+  transition: opacity 300ms ease, 
+              transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-radius 300ms ease,
+              width 300ms ease,
+              height 300ms ease;
+}
+
+
+// 聊天窗口離開動畫 (先縮小)
+.chatWindowExitActive {
+  opacity: 0;
+  transform: scale(0.2) translateY(0) translateX(0);
+  border-radius: 50%;  // 轉換到按鈕圓形
+  width: 55px;        // 與按鈕相同寬度
+  height: 55px;       // 與按鈕相同高度
+  transition: opacity 300ms ease, 
+              transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-radius 300ms ease,
+              width 300ms ease,
+              height 300ms ease;
+}
+
+.chatWidgetContainer.chatOpen .chatButton {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0);
+  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+// 當按鈕由隱藏進入時，延遲顯示，讓退出動畫先結束
+// .chatButtonEnter {
+//   opacity: 0;
+//   transform: scale(0);
+// }
+
+.chatButtonEnterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 300ms; // 延遲300ms等待聊天室退出動畫完成
+}
+// 聊天按鈕離開動畫 (先縮小再消失)
+.chatButtonExit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.chatButtonExitActive {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 300ms, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chatButtonWrapper {
+  width: 55px;
+  height: 55px;
+  position: relative; /* 添加相對定位 */
+}
+.chatButtonWrapper.open {
+  width: 390px;
+  height: 500px;
+  bottom: 90px;
+  right: 20px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+// .chatButtonWrapper.open .chatButton {
+//   width: 100% !important;
+//   height: 100% !important;
+//   border-radius: 15px !important; // 改成聊天室的圓角
+//   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+// }
+
+.chatButton {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%; /* 保持圓形 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: color.adjust(#fc671a, $lightness: -10%);
+  line-height: 1;
+  transform: scale(1); // 初始值
+  overflow: hidden;
+  /* 移除固定 transition，以便由 enterActive 處理 */
+}
+
+.chatButton:hover {
+  transform: scale(1.05);
+  background-color: color.adjust(#fc671a, $lightness: -5%) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatButton:active,
+.chatButton:focus,
+.chatButton:focus-visible {
+  transform: scale(0.95);
+  background-color: color.adjust(#fc671a, $lightness: -10%) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+  outline: none !important;
+}
+//按鈕部分
+
+// .chatWindow {
+//   position: fixed;
+//   bottom: 90px;
+//   right: 20px;
+//   width: 390px;
+//   height: 500px;
+//   border-radius: 15px;
+//   overflow: hidden;
+//   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+//   display: flex;
+//   flex-direction: column;
+//   background: #7e7267;
+//   color: #333;
+//   transform-origin: bottom right;
+//   z-index: 1000;
+// }
+
+
+.mainChat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #7e7267;
+  color: white;
+  height: 50px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.headerUserInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.iconButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatBody {
+  flex: 1;
+  padding: 0; // 從2px減少到0px
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.chatBody > div {
+  padding: 5px 0;
+}
+
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+// 訊息行容器 - 確保所有訊息垂直居中對齊
+.messageRow {
+  display: flex;
+  align-items: center; // 垂直置中對齊
+  margin-bottom: 2px; // 從12px減少到8px
+  gap: 8px; // 提供頭像與訊息之間的間距
+  position: relative; // 讓頭像可以絕對定位
+  overflow: visible;
+}
+
+// 用戶訊息行靠右對齊，移除右側頭像空間
+.userMessageRow {
+  position: relative; // 讓子元素絕對定位能參考 .userMessageRow
+  justify-content: flex-end;
+  padding-right: 10px; // 大幅減少右側內邊距，因為不再需要頭像空間
+  padding-left: 45px; // 進一步增加左側間距
+  overflow: visible;
+}
+
+// 客服訊息行靠左對齊，保留頭像空間
+.agentMessageRow {
+  justify-content: flex-start;
+  padding-left: 40px; // 保留客服頭像空間
+  padding-right: 10px; // 保持右側邊距小一點
+}
+
+// 訊息本體 - 統一基本樣式
+.message {
+  max-width: 80%;
+  padding: 8px 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative; // 確保訊息本身也有相對定位
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  word-break: break-word; // 在訊息容器層級也添加換行控制
+  @include message-bubble;
+}
+
+// IG風格訊息氣泡圓角樣式
+// 單獨訊息 - 四邊都圓角
+.bubble-single {
+  border-radius: 15px;
+}
+
+// 連續訊息的第一條 - 上方兩角圓，底部左角小圓，右角圓
+.bubble-first {
+  border-radius: 15px 15px 5px 15px;
+}
+
+// 連續訊息的中間部分 - 上方右角圓，其他三角小圓
+.bubble-middle {
+  border-radius: 15px 5px 5px 15px;
+}
+
+// 連續訊息的最後一條 - 下方兩角圓，上方左角小圓，右角圓
+.bubble-last {
+  border-radius: 15px 5px 15px 15px;
+}
+
+.userMessage.bubble-middle {
+  border-radius: 15px 5px 5px 15px;
+}
+
+.userMessage.bubble-last {
+  border-radius: 15px 5px 15px 15px;
+}
+
+// 連續訊息的間距調整
+.messageRow + .messageRow {
+  margin-top: 2px;
+}
+
+// 當上下訊息是同一發送者時減少間距
+.bubble-first,
+.bubble-middle {
+  margin-bottom: 1px;
+}
+
+.bubble-middle,
+.bubble-last {
+  margin-top: 1px;
+}
+
+// 用戶訊息樣式
+.userMessage {
+  background: #1e3c54;
+  color: white;
+  align-self: flex-end;
+  margin-right: 0; // 移除右側外邊距
+  position: relative;
+  @include user-bubble;
+}
+
+// 客服訊息樣式
+.agentMessage {
+  background: #686868;
+  color: #ffffff;
+  align-self: flex-start;
+  @include agent-bubble;
+}
+
+// 客服訊息特定樣式 - 鏡像反轉圓角
+// 修改客服單條訊息時的圓角 - 完全圓形
+.agentMessage.bubble-single {
+  border-radius: 15px; // 所有角都是15px，沒有尖角
+}
+
+// 另外，確保通用的單獨訊息樣式也是15px圓角
+.bubble-single {
+  border-radius: 15px;
+}
+
+.agentMessage.bubble-first {
+  border-radius: 15px 15px 15px 5px;
+}
+
+.agentMessage.bubble-middle {
+  border-radius: 5px 15px 15px 5px;
+}
+
+.agentMessage.bubble-last {
+  border-radius: 5px 15px 15px 15px;
+}
+
+// 用戶單條訊息時的圓角 - 僅左下角尖
+.userMessage.bubble-single {
+  border-radius: 15px;
+}
+
+// 已有的用戶訊息樣式可以取消註解，確保左側尖角效果
+.userMessage.bubble-first {
+  border-radius: 15px 15px 5px 15px;
+}
+
+// 頭像容器
+.avatarContainer {
+  margin: 0; // 移除多餘的間距
+  display: flex;
+  align-items: center; // 確保頭像垂直居中
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+}
+
+// 用戶訊息頭像在右側
+.userMessageRow .avatarContainer {
+  right: 1px; // 從10px減少到5px，更靠右
+}
+
+// 客服訊息頭像在左側
+.agentMessageRow .avatarContainer {
+  left: 5px; // 從10px減少到5px，更靠左
+}
+
+// 訊息內容
+.messageContent {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word; // 確保長內容能夠換行
+}
+
+// 訊息狀態標誌位置
+.messageStatus {
+  position: absolute;
+  left: -30px;
+  bottom: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%; // 圓形背景
+  z-index: 9999; // 非常高的層級
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.readIcon {
+  color: #7e7267; // 使用明亮的藍色
+  opacity: 1;
+}
+
+.unreadIcon {
+  color: #aaa;
+  opacity: 1;
+}
+
+.chatFooter {
+  padding: 6px;
+  background-color: white;
+  border-top: 1px solid #eee;
+}
+
+.messageForm {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.inputContainer {
+  flex: 1;
+  background: #e2e2e2;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.inputButton {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.inputButton:hover {
+  color: #1e3c54;
+}
+
+.messageInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+  padding: 0;
+}
+
+.messageInput:focus {
+  outline: none;
+}
+
+.messageInput::placeholder {
+  color: #484848;
+}
+
+.sendButton {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border: 1px solid #4476ff00;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  margin: 0 8px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+.sendButton:hover {
+  transform: scale(1.05);
+}
+
+.sendButton:disabled {
+  cursor: not-allowed;
+}
+
+.imageButton {
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 8px;
+  overflow: visible;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+  }
+}
+
+.emojiButton {
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 8px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+// 添加頭像相關樣式
+.avatar {
+  width: 30px !important; // 加入 !important 確保優先級
+  height: 30px !important;
+  min-width: 30px !important; // 防止彈性盒子拉伸
+  min-height: 30px !important;
+  max-width: 30px !important; // 防止超出限制
+  max-height: 30px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// 確保訊息容器能正確顯示
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+// 修改訊息文字容器樣式，取消flex佈局
+.messageText {
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline; // 使用 baseline 代替 center，提供更自然的文字基線對齊
+}
+
+// 普通文字樣式
+.plainText {
+  font-size: 14px !important;
+  line-height: 1.4;
+  font-family: inherit;
+  display: inline;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+// // Emoji 樣式
+// .emoji {
+//   font-size: 20px !important;
+//   display: inline-block;
+//   vertical-align: center; //
+//   line-height: 1;
+//   padding: 0;
+// }
+
+// 時間標記樣式
+.timeLabel {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  content: '';
+  flex: 1;
+  // border-bottom: 1px solid #e0e0e0;
+  margin: 10px auto;
+}
+
+.image-send-emoji-btn {
+  display: flex;
+  align-items: center;
+  height: 40px; // 固定高度
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+// 文件預覽項目
+.filePreviewItem {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  img,
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 只保留移除文件按鈕
+  .removeFileButton {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    // 添加這一行確保影片預覽有控制條
+    // &::-webkit-media-controls {
+    //   display: flex !important;
+    //   visibility: visible;
+    //   opacity: 1 !important;
+    // }
+  }
+
+  // 為影片預覽項目特別設定
+  &.videoPreview {
+    width: 80px; // 保持與其他預覽項相同寬度
+    height: 45px; // 16:9比例 (80 * 9/16 = 45)
+  }
+}
+
+// 訊息中的圖片和影片樣式
+.messageImage {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.messageVideo {
+  width: 240px; // 設定固定寬度
+  height: 135px; // 16:9比例下的高度 (240 * 9/16 = 135)
+  border-radius: 8px;
+  object-fit: contain; // 確保影片內容不被裁切
+  background-color: #000; // 黑色背景，填充影片外的空間
+
+  // 確保控制條可見
+  // &::-webkit-media-controls {
+  //   opacity: 1;
+  //   visibility: visible;
+  // }
+}
+
+// 圖片查看器樣式
+.imageViewerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  margin-top: 30px;
+}
+
+.imageViewerContent {
+  position: relative;
+  max-width: 90%;
+  max-height: calc(90% - 90px); // 調整最大高度，考慮 header
+  margin-top: 40px; // 添加上方間距
+}
+
+.enlargedImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+.imageViewerClose {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+// 動畫效果
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+// emoji 按鈕容器
+.emojiButtonContainer {
+  position: relative;
+}
+
+// emoji 選擇器容器
+.emojiPickerContainer {
+  position: absolute;
+  bottom: 100%; // 放在按鈕上方
+  left: -240px; // 水平居中調整
+  margin-bottom: 10px;
+  z-index: 9999; // 確保在最頂層
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+
+  // 添加向下的小三角形
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 250px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+  }
+}
+
+.onlineIndicator {
+  @include online-indicator;
+}
+
+/* 圖片容器 */
+.imageContainer {
+  max-width: 100%;
+  position: relative;
+}
+
+.messageImage {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+}
+
+.imageCaption {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 視頻容器 */
+.videoContainer {
+  max-width: 100%;
+  position: relative;
+}
+
+.messageVideo {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  display: block;
+}
+
+.videoCaption {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 表情符號 */
+.emoji {
+  font-size: 1.5em;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.scrollToBottomButton {
+  position: absolute;
+  bottom: 80px;
+  left: 50%; // 改為左側50%
+  transform: translateX(-50%); // 水平置中
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #666;
+  }
+}
+
+@media (max-width: 768px) {
+  .chatButton {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    min-height: 45px !important;
+    bottom: 75px !important; // 放在頂部按鈕上方 (20px + 45px + 10px)
+    right: 20px !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+  
+  .chatWindow {
+    width: calc(100vw - 40px);
+    max-width: 320px;
+    right: 10px;
+    bottom: 130px; // 調整窗口位置
+  }
+}
+
+// 添加以下樣式到檔案末尾
+
+// 認證提示容器
+.authPromptContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+// 認證提示框
+.authPrompt {
+  border-radius: 6px;
+  padding: 15px 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 250px;
+
+  // 新增以下樣式
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin-bottom: 12px;
+    color: #495057;
+    font-size: 0.9rem;
+  }
+}
+
+// 登入按鈕樣式
+.loginButton {
+  background-color: #fc671a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: darken(#fc671a, 5%);
+  }
+}
+
+// 禁用輸入框樣式
+.disabledInput {
+  // background-color: #f5f5f5 !important;
+  // color: #aaa !important;
+  cursor: not-allowed !important;
+
+  // &::placeholder {
+  //   color: #aaa !important;
+  // }
+}
+
+// 禁用按鈕樣式
+.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+
+  &:hover {
+    transform: none !important;
+  }
+}
+

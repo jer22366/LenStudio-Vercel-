@@ -1,0 +1,122 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContainer {
+  position: relative;
+  max-width: 80%; /* 最大寬度80%確保圖片不會太大 */
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 重新設計關閉按鈕，永遠位於圖片右上角 */
+.closeButton {
+  position: absolute;
+  top: 10px; /* 位於圖片內部頂部 */
+  right: 10px; /* 位於圖片內部右側 */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15; /* 確保顯示在最上層 */
+  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 響應式樣式 - 在小螢幕上優化佈局 */
+@media (max-width: 768px) {
+  .modalContainer {
+    max-width: 90%;
+  }
+  
+  .closeButton {
+    width: 28px;
+    height: 28px;
+    top: 8px;
+    right: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .modalContainer {
+    max-width: 95%;
+  }
+  
+  .closeButton {
+    width: 24px;
+    height: 24px;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    border-width: 1px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

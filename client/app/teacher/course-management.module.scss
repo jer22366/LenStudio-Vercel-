@@ -1,0 +1,372 @@
+.center-content-container {
+  padding: 1rem;
+}
+
+.center-content {
+  background-color: var(--bg-color-gray);
+  height: 860px;
+  padding: 2rem 5rem;
+}
+
+.nav-bar h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color-med);
+}
+.nav-bar p {
+  font-size: 0.9rem;
+  color: var(--gray--400);
+}
+.control-btns {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btns-left {
+  display: flex;
+  gap: 10px;
+}
+
+.btns-left .filter a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color-med);
+  color: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btns-left .filter a:hover {
+  background-color: var(--primary-color);
+}
+
+.control-btns .add a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+  background-color: var(--warning-color);
+  color: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.control-btns .add a:hover {
+  background-color: var(--warning-color-dark);
+  color: var(--white);
+}
+
+.control-btns p {
+  margin: 0;
+}
+
+.course-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 22rem;
+  border: 1px solid var(--line-color-gray-light);
+  border-radius: 25px;
+  padding: 8px 20px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding-bottom: 3px;
+}
+
+/* --- 課程列表 --- */
+
+.table-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+.table-container tbody {
+  background-color: var(--white);
+}
+
+.table-container table {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table-container thead {
+  margin-top: 1rem;
+}
+.thead a {
+  color: var(--white);
+}
+
+.table-container th {
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.table-container tr {
+  border-bottom: 1px solid var(--line-color-gray-light2);
+  height: 50px;
+}
+
+.table-container .course-img {
+  width: 150px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.course-img img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.table-container thead th img {
+  margin-left: 5px;
+}
+
+.table-container thead th:first-child {
+  padding-left: 1rem;
+}
+.table-container thead th {
+  padding: 0 1rem;
+}
+.table-container tbody td:first-child {
+  padding-left: 1rem;
+}
+.table-container tbody td {
+  vertical-align: middle;
+  padding: 0.8rem 1rem;
+  height: 100%;
+}
+
+.edit-btn {
+  border: none;
+  background: none;
+  color: var(--secondary-color-dark);
+}
+.delete-btn {
+  border: none;
+  background: none;
+  color: var(--secondary-color-dark);
+}
+.state-circle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.published {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--warning-color);
+}
+.draft {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--gray--200);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 5px;
+
+  img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border-radius: inherit;
+  }
+
+  // 🔹 遮色片（預設隱藏）
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); // 半透明黑色遮色片
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  // 🔹 檢視 Icon
+  .view-icon {
+    color: white;
+    font-size: 1rem;
+  }
+
+  // 🔹 Hover 效果
+  &:hover {
+    img {
+      transform: scale(1.1); // 輕微放大圖片
+      border-radius: 5px;
+    }
+
+    .overlay {
+      opacity: 1; // 顯示遮色片
+      border-radius: 5px;
+    }
+  }
+}
+
+// Toggle Switch
+.state-toggle{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 25px; /* ✅ 調小寬度 */
+  height: 16px; /* ✅ 調小高度 */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 16px; /* ✅ 調整為適合的新圓角 */
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 10px; /* ✅ 滑動按鈕縮小 */
+  width: 10px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--warning-color); /* ✅ 變更背景顏色 */
+}
+
+input:checked + .slider:before {
+  transform: translateX(9px); /* ✅ 根據新大小調整滑動距離 */
+}
+
+@media (max-width: 1600px) {
+  .center-content {
+    padding: 1.8rem 1.8rem;
+  }
+}
+
+@media (max-width: 1500px) {
+  .center-content {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .control-btns {
+    margin-bottom: 1rem;
+  }
+  .btns-left {
+    margin-bottom: 0.5rem;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .control-btns {
+    display: block;
+  }
+  .center-content {
+    padding: 1rem 1rem;
+  }
+
+  .table-container thead {
+    display: none; /* ✅ 隱藏表頭 */
+  }
+
+  .table-container tbody,
+  .table-container tr {
+    display: block;
+    width: 100%;
+  }
+
+  .table-container tr {
+    border: none;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    height: auto;
+  }
+
+  .table-container td::before {
+    content: attr(data-label); /* ✅ 使用 `data-label` 來顯示標題 */
+    font-weight: bold;
+    color: var(--secondary-color-dark);
+    flex-shrink: 0;
+  }
+
+  /* 🟢 圖片區塊 */
+  .table-container .course-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2rem;
+  }
+
+  .table-container .course-img img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+  }
+
+  .table-container .state-circle {
+    flex-direction: row;
+  }
+
+  .table-container td {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+  }
+
+  .table-container td::before {
+    content: attr(data-label);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--secondary-color-dark);
+    margin-bottom: 5px;
+  }
+}

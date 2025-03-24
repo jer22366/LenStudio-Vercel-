@@ -1,0 +1,536 @@
+// 優化動畫設置 - 快速出現
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px); // 進一步縮短移動距離
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.25s ease forwards; // 縮短到0.25秒
+  animation-fill-mode: forwards;
+}
+
+
+// 新增相機對焦動畫效果
+@keyframes focusBlurSharp {
+  0% {
+    filter: blur(0);
+    transform: scale(1);
+  }
+  40% {
+    filter: blur(5px);
+    transform: scale(1.1);
+  }
+  100% {
+    filter: blur(0);
+    transform: scale(1.05);
+  }
+
+ /* 標題 */
+//  .productTitle {
+//   background-color: transparent;
+//   font-family: "Noto Sans TC", serif;
+//   font-weight: 700;
+//   border-left: solid 7px #f9a11b;
+// }
+
+// .productPrice {
+//   color: black;
+//   font-weight: bold;
+
+}
+
+@keyframes focusFrameAppear {
+  0% {
+    opacity: 0;
+    border: 4px solid rgb(226, 6, 18);
+  }
+  80% {
+    opacity: 1;
+    border: 4px solid rgb(226, 6, 18);
+  }
+  100% {
+    opacity: 1;
+    border: 4px solid rgba(79, 173, 28);
+  }
+}
+
+// 添加邊框展開動畫
+@keyframes borderExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+// 移除延遲類的延遲時間
+@for $i from 0 through 10 {
+  .delay-#{$i} {
+    animation-delay: #{$i * 0.02}s !important; // 大幅減少延遲時間到0.02秒
+  }
+}
+
+// 全局樣式重置 (透過模組化CSS轉換)
+.productContainer * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 容器和排版樣式 (Apple風格)
+.productContainer {
+  max-width: 100%;
+  padding: 0; // 移除所有padding，通過內部元素控制
+  margin: 0 0 80px 0;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: visible; // 改為 visible，讓按鈕可顯示
+}
+
+// 調整標題區域為Flex佈局以使按鈕對齊
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 24px 0 80px; // 左側保持大間距，與初始卡片位置一致
+}
+
+.sectionTitle {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.003em;
+  margin-bottom: 6px;
+  margin-left: 24px;
+  color: #ffffff; // 修正標題顏色為黑色
+}
+
+.sectionSubtitle {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.381;
+  letter-spacing: 0.011em;
+  color: #1d1d1f;
+}
+
+.loadingText {
+  font-size: 18px;
+  color: #1d1d1f;
+  text-align: center;
+  padding: 40px 0;
+}
+
+// 修改產品輪播外容器，用於正確定位導航按鈕
+.productCarouselContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 600px;
+  padding: 0; // 移除padding
+}
+
+
+// 修改卡片容器增加額外空間
+.productScrollContainer {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 10px 0 10px; // 保持上下padding
+  padding-left: 80px; // 調整左側空間
+  padding-right: 80px; // 調整右側空間
+  margin: 5px 0;
+  transition: padding-left 0.8s ease; // 平滑過渡左邊距變化
+  /* 隱藏滾動條但保留功能 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+
+  // &::-webkit-scrollbar {
+  //   display: none; /* Chrome, Safari, Opera */
+  // }
+
+  // 滾動時的狀態 - 由JS控制添加此類
+  &.scrolled {
+    padding-left: 24px; // 滾動後左邊距變小，與右邊距相同
+  }
+}
+
+// 去除卡片連結的下劃線
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+
+// /* 產品區塊背景 */
+// .productArea {
+//   background-color: #143146;
+
+}
+
+// 修改產品卡片樣式
+.productCard {
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 10px 5px 10px 20px; // 修改下邊距為10px，與上邊距一致
+  padding-bottom: 0; // 碮保沒有額外的內部底部間距
+  min-width: 330px;
+  flex: 0 0 330px; // 固定寧度
+  height: 500px; // 固定高度
+  overflow: visible; // 確保overflow為visible
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  position: relative; // 添加相對定位
+  border: 1px solid transparent; // 初始透明邊框
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  // 統一transform處理
+  transform: translateY(0); // 初始位置不移動
+  transition: all 0.3s ease;
+
+  // 確保卡片顯示時使用fadeInUp動畫
+  &.fadeInUp {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  // 創建外層邊框效果
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ffffff;
+    border-radius: 23px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    pointer-events: none; // 確保不會影響鼠標事件
+    z-index: 5;
+  }
+
+  // 卡片懸停效果
+  &:hover {
+    transform: translateY(0); // 保持位置不變
+    border: 1px solid white; // 白色邊框
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+
+    // 外層邊框擴展動畫
+    &::after {
+      animation: borderExpand 0.4s forwards;
+      transform: scale(1.02);
+      opacity: 1;
+    }
+  }
+}
+
+// 產品信息區域
+.productInfo {
+  padding: 30px 30px 20px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+// 產品圖片容器
+.productImageContainer {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 0;
+  height: 350px; // 固定高度
+  position: relative; // 相對定位基準
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.03); // 輕微放大1.01倍
+}
+
+// 產品圖片聚焦效果 - 聚焦中
+.productImageContainer.focusing img {
+  animation: focusBlurSharp 0.8s forwards;
+}
+
+// 產品圖片聚焦效果 - 已聚焦
+.productImageContainer.focused img {
+  transform: scale(1.05);
+  filter: blur(0);
+}
+
+// 產品圖片 - 移除所有與卡片hover相關的效果
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+// 類別文字
+.productCategory {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7e7267;
+  margin-bottom: 6px;
+}
+
+// 產品名稱
+.productName {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+// 產品價格
+.productPrice {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: #1d1d1f;
+  font-weight: 500;
+}
+
+// 響應式設計
+@media screen and (max-width: 1068px) {
+  .productCard {
+    min-width: 300px;
+    flex: 0 0 300px;
+    height: 470px;
+  }
+
+  .productImageContainer {
+    max-height: 80%;
+  }
+
+  .sectionTitle {
+    font-size: 36px;
+  }
+
+  .productName {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .productCard {
+    min-width: 270px;
+    flex: 0 0 270px;
+    height: 420px;
+  }
+
+  .productImageContainer {
+    max-height: 280px;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .productName {
+    font-size: 21px;
+  }
+
+  .productContainer {
+    padding: 0 10px;
+    margin-bottom: 0;
+  }
+
+  .sectionHeader {
+    padding: 0 14px;
+  }
+
+  .productScrollContainer {
+    padding: 0 14px;
+  }
+
+  .productInfo {
+    padding: 20px 20px 15px;
+  }
+}
+
+/* 產品區塊背景 */
+.productArea {
+  background-color: #14314600;
+}
+
+/* 主要卡片樣式 */
+.cardArea {
+  border-radius: 10px;
+}
+
+/* 產品標籤 */
+.cardImgArea {
+  span {
+    color: #807871;
+    border: solid 1px #807871;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  span:hover {
+    background: #807871;
+    color: white;
+  }
+}
+
+/* 按鈕區 */
+.searchBtn a {
+  display: none;
+}
+
+.searchBtn2 a {
+  display: inline;
+}
+
+.searchBtn a:hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform: scale(1.1);
+}
+
+/* 產品資訊 */
+.productDetail {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.8rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.4em 0.6em;
+}
+
+
+// 相機對焦框
+.focusFrame {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  border: 5px solid rgba(183, 23, 23, 0.7);
+  border-radius: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: border-color 0.3s ease;
+  animation: focusFrameAppear 0.8s forwards;
+}
+
+.focusFrameActive {
+  border: 5px solid rgba(76, 217, 100, 0.9); // 綠色框框
+}
+
+// 滾動控制按鈕樣式
+.scrollControls {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+// 導航按鈕樣式 - Apple Store 風格
+.navButton {
+  position: absolute;
+  top: 250px; // 卡片高度的一半
+  transform: translateY(-50%);
+  width: 50px; // 更小的按鈕
+  height: 50px; // 更小的按鈕
+  border-radius: 50%;
+  background-color: rgba(210, 210, 215, 0.64);
+  backdrop-filter: blur(20px); // 毛玻璃效果
+  -webkit-backdrop-filter: blur(20px); // Safari 支援
+  border: none;
+  box-shadow: none; // 移除陰影
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0; // 預設隱藏
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+
+  // SVG 圖示樣式
+  svg {
+    width: 12px;
+    height: 12px;
+    fill: #1d1d1f; // 深灰色填充
+  }
+
+  &:hover {
+    background-color: rgba(210, 210, 215, 0.8); // 懸停時背景更不透明
+  }
+}
+
+// 改為在整個 .productContainer 裡懸停時就顯示按鈕
+.productContainer:hover .navButton {
+  opacity: 1;
+}
+
+// 左側按鈕位置
+.navButtonLeft {
+  left: 16px;
+}
+
+// 右側按鈕位置
+.navButtonRight {
+  right: 16px;
+}
+
+
+// 響應式設計 - 移動設備上隱藏按鈕
+@media screen and (max-width: 1200px) {
+  .navButton {
+    display: none; // 在移動設備上完全隱藏
+  }
+}
+
+// 新增立即顯示的類別 - 用於滾動顯示的卡片
+.instantShow {
+  animation: fadeInUp 0.15s ease forwards !important;
+  animation-delay: 0s; // 立即顯示，無延遲
+}
+
+// 添加特殊狀態類
+.navButtonHidden {
+  opacity: 0 !important;
+  pointer-events: none; // 確保隱藏時不能點擊
+}
+
+// 針對滾動邊界時的特殊樣式
+.atStart .navButtonLeft {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.atEnd .navButtonRight {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+// @media (max-width: 576px) {
+//   .productTitle {
+//     margin-left: -33px;
+//   }
+// }
+

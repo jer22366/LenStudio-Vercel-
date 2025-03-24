@@ -1,0 +1,201 @@
+.courseArea {
+  // background-color: #23425a;
+  color: white;
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 1rem !important;
+  }
+
+  h4 {
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: 2rem;
+  }
+}
+
+.courseTitle {
+  background-color: transparent;
+  font-family: 'Noto Sans TC', serif;
+  font-weight: 900;
+  border-left: solid 7px #f9a11b;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.marqueeWrapper {
+  display: flex;
+  min-width: 200%; /* 內容寬度為視窗 2 倍，確保循環 */
+}
+
+.marqueeContent {
+  display: flex;
+  flex-shrink: 0; /* 防止縮小 */
+  min-width: 100%; /* 確保每組內容佔滿 100% */
+  animation: scroll-left 70s linear infinite; /* 讓它不停滾動 */
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  } /* 讓第一組滾出後，第二組接上 */
+}
+
+.courseCard {
+  flex-shrink: 0;
+  width: 500px; /* 固定每張課程卡片的寬度 */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover img {
+    opacity: 0.8;
+  }
+}
+
+.textBoxContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .textBox {
+    margin: 4rem 2rem 4rem 2rem;
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
+    background-color: #143146;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textBoxNum {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--secondary-color-med);
+  }
+}
+
+.starIcon {
+  font-size: 18px; /* 調整 icon 大小 */
+  margin-left: 2px; /* 增加間距 */
+}
+
+.shinyText {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(
+    45deg,
+    #d0b088 0%,
+    #d0b088 35%,
+    #ddd3ba 45%,
+    #d0b088 55%,
+    #d0b088 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .courseCard {
+    width: 400px; /* 固定每張課程卡片的寬度 */
+  }
+  .textBoxContainer {
+    .textBox {
+      padding: 1.5rem 2rem;
+      margin: 4rem 1rem 5rem 1rem;
+    }
+  }
+
+  .starIcon {
+    font-size: 18px; /* 調整 icon 大小 */
+    margin-left: 2px; /* 增加間距 */
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .courseCard {
+    width: 350px; /* 固定每張課程卡片的寬度 */
+  }
+  .textBoxContainer {
+    display: flex;
+    justify-content: center;
+    .textBox {
+      padding: 1rem 2rem;
+      margin: 3rem 1rem 4rem 1rem;
+    }
+    .textBoxNum {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--secondary-color-med);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textBoxContainer {
+    display: flex;
+    justify-content: center;
+    .textBox {
+      padding: 1rem 1rem;
+      margin: 3rem 0.5rem 4rem 0.5rem;
+      width: calc(50% - 40px); /* 每行顯示 2 個 */
+    }
+    .textBoxNum {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--secondary-color-med);
+    }
+    .textBox:nth-child(1),
+    .textBox:nth-child(2) {
+      margin-bottom: 1rem; /* 可選：給它一點間距，避免貼太緊 */
+    }
+    .textBox:nth-child(3),
+    .textBox:nth-child(4) {
+      margin-top: 0rem; /* 可選：給它一點間距，避免貼太緊 */
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .courseTitle{
+    margin-top: 1rem;
+  }
+  .textBox {
+    padding: 1rem 0.3rem;
+    margin: 3rem 0rem 3rem 0rem;
+    width: calc(50% - 40px); /* 每行顯示 2 個 */
+  }
+  .textBoxNum {
+    font-size: 0.9rem;
+  }
+  .starIcon {
+    font-size: 14px;
+  }
+}

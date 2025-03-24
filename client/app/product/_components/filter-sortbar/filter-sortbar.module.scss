@@ -1,0 +1,164 @@
+/* 按鈕進場動畫 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 下拉選單滑入動畫 */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 比較按鈕縮放動畫 */
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.btnOutlineSecondary {
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  background-color: transparent;
+  animation: fadeIn 0.5s ease-in-out;
+
+  &.active {
+    background-color: #1b3846 !important;
+    color: white !important;
+    border-color: #1b3846 !important;
+  }
+
+  &:hover {
+    background-color: #1b3846;
+    color: white;
+  }
+}
+
+.compareButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1b3846;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  animation: scaleIn 0.5s ease-in-out;
+  top: -10px;
+
+  &:hover {
+    transform: scale(1.1);
+    color: #1b3846;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  /* 讓數字計數顯示在右上角 */
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    color: #e58e41;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+}
+
+.sortContainer {
+  margin-top: -25px;
+  width: 120px;
+  animation: slideDown 0.5s ease-in-out;
+  select {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    font-size: 1rem;
+    padding: 10px;
+    box-shadow: none;
+    background-color: #ffffff00;
+    appearance: none;
+  }
+
+  select:focus {
+    border-color: #1b3846 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+/* 桌機版 (原本的樣式，確保換行) */
+.brandContainer {
+  display: flex;
+  gap: 8px;
+}
+
+
+@media (max-width: 391px) {
+   /* 🔹 讓品牌按鈕可以左右滑動 */
+   .brandContainer {
+    margin-top: -40px;
+    display: flex;
+    overflow-x: auto; // 允許水平滾動
+    white-space: nowrap; // 防止換行
+    scrollbar-width: none; // 隱藏滾動條 (Firefox)
+    border-bottom: 1px solid rgba(120, 114, 114, 0.445);
+    scroll-snap-type: x mandatory; // 讓滑動有吸附效果
+  }
+
+  .btnOutlineSecondary {
+    scroll-snap-align: start; // 讓按鈕滑動時對齊左側
+    font-size: 14px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #1b3846 !important;
+      color: white !important;
+      border-color: #1b3846 !important;
+    }
+  }
+
+  .compareButton {
+    top: -25px;
+    left: 8px;
+  }
+
+  .sortContainer {
+    display: none;
+  }
+}

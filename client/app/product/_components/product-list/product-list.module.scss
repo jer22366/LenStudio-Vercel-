@@ -1,0 +1,174 @@
+.container {
+  min-height: 100px;
+}
+
+.card {
+  border: none;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-img-top {
+    max-height: calc(100% - 100px);
+    object-fit: contain;
+    margin-top: 40px;
+  }
+
+  .card-text {
+    color: #d0b189;
+  }
+
+  a {
+    background-color: #e08534;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  &:hover a {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.btn-outline-secondary {
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+
+  &.active,
+  &:focus {
+    background-color: #1b3846;
+    color: white;
+  }
+
+  &:not(.active):hover {
+    background-color: #1b3846;
+  }
+}
+
+.custom {
+  border: none;
+}
+
+.icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.card:hover .icon-container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+
+  i {
+    font-size: 20px;
+    color: #333;
+  }
+}
+
+.icon-text {
+  font-size: 12px;
+  color: black;
+}
+
+.pagination {
+  .page-link {
+    border: none;
+    color: #6c757d;
+    background-color: transparent;
+    font-size: 18px;
+    position: relative;
+
+    &.active-link {
+      color: black;
+      font-weight: bold;
+
+      &::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 30%;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        bottom: -2px;
+        left: 35%;
+      }
+    }
+  }
+
+  .page-item:not(.disabled) .page-link:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 391px) {
+  .breadcrumb {
+    display: none;
+  }
+
+  .pagination {
+    display: flex !important;
+    justify-content: center !important;
+    min-height: 50px;
+  }
+
+  .card {
+    a {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:hover .icon-container {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  }
+
+  .icon-container {
+    display: none !important;
+  }
+
+  .aside-filter,
+  .sort-dropdown {
+    display: none;
+  }
+
+  .aside-filter.show {
+    display: block;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+}

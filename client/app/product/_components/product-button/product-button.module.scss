@@ -1,0 +1,63 @@
+.iconcontainer {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.iconCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconCircle.added {
+  background-color: #0d2361;
+  color: white;
+}
+
+.iconText {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+@media (max-width: 391px) {
+  .iconcontainer {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    right: -10px;
+    top: 9px;
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .iconCircle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .iconText {
+    font-size: 12px;
+  }
+}

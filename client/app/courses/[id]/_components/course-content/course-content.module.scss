@@ -1,0 +1,410 @@
+.course-detail-content {
+  position: relative;
+  box-shadow: var(--box-shadow);
+  background-color: var(--white);
+  padding: 1rem 2rem 3rem 2rem;
+  border-radius: 10px;
+  max-height: 1200px; /* 設定一個固定的高度 */
+  overflow: hidden; /* 隱藏超出部分 */
+  transition: max-height 0.5s ease-in-out; /* 添加過渡效果 */
+}
+
+.content-text h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.content-text img {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.expanded {
+  max-height: 10000px; /* 展開後的高度，這個可以視需要調整 */
+}
+
+.toggle-btn-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 8rem;
+  background: linear-gradient(to bottom, #f5f5f500, #ffffff 70%);
+}
+
+.course-detail-content.expanded .toggle-btn-container .toggle-btn img {
+  transform: rotate(180deg); /* 圖標旋轉效果 */
+}
+
+.toggle-btn {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 8px 25px;
+}
+
+@media screen and (max-width: 1400px) {
+  .buy-btn,
+  .cart-btn,
+  .favorite-btn {
+    padding: 8px 20px;
+  }
+
+  .cart-btn p {
+    display: none;
+  }
+
+  .favorite-btn p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-left,
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-left a,
+  .nav-right a {
+    text-decoration: none;
+  }
+
+  .nav-left li,
+  .nav-right li {
+    color: var(--black);
+    margin: 10px 0;
+  }
+
+  .menu-icon.active + nav {
+    display: flex;
+  }
+
+  /* --- 上方課程資訊區 --- */
+
+  .breadcrumb {
+    display: none;
+  }
+
+  .course-info {
+    margin-top: 120px;
+  }
+
+  .course-detail .line {
+    margin: 20px 0;
+  }
+
+  /* --- 下方固定區 --- */
+
+  .price-bottom-fixed {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    height: 60px;
+    padding: 0 2rem;
+    z-index: 20;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .price-bottom-fixed .buy-btn,
+  .price-bottom-fixed .cart-btn {
+    height: 40px;
+  }
+
+  .price-bottom-fixed .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .price-bottom-fixed .buy-btn {
+    background-color: var(--secondary-color-med);
+    color: var(--primary-color);
+    width: 100%;
+  }
+
+  .price-bottom-fixed > .cart-btn {
+    background-color: var(--white);
+    border: 1px solid var(--primary-color);
+  }
+
+  .price-bottom-fixed .buy-btn:hover {
+    background-color: var(--warning-color);
+    box-shadow: 0 0 8px var(--secondary-color-lig);
+    color: var(--white);
+    border: 2px solid var(--warning-color);
+  }
+
+  .price-bottom-fixed .cart-btn:hover {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .course-detail h1 {
+    font-size: 1.8rem;
+  }
+
+  .buy-btn,
+  .cart-btn,
+  .favorite-btn {
+    padding: 8px 10px;
+  }
+
+  /* 四大簡介 */
+  .four-course-info {
+    padding: 0 25px;
+  }
+
+  /* --- 課程中間內容 --- */
+  .category-nav ul {
+    gap: 10vw;
+  }
+
+  /* --- 講師資料 --- */
+}
+
+@media screen and (max-width: 768px) {
+  .course-detail-container {
+    padding: 2rem 0;
+    background-color: var(--white);
+  }
+
+  .course-detail h1 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+  /* 上方課程簡介 */
+  .course-info {
+    margin-bottom: 30px;
+  }
+
+  /* 四大課程簡介 */
+  .four-course-info-container {
+    background-color: var(--bg-color-gray);
+  }
+  .four-course-info-wrapper {
+  }
+
+  .four-course-info {
+    position: static;
+    width: 100%;
+    bottom: -60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--bg-color-gray);
+    height: auto;
+    box-shadow: none;
+    padding: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .four-course-info .line {
+    display: none;
+  }
+
+  .four-course-info .info-content:nth-child(1) {
+    padding-right: 1.5rem;
+  }
+
+  .info-content {
+    padding-top: 1.5rem;
+    width: 50%;
+  }
+  /* 中間課程內容 */
+
+  /* -- 關於講師 -- */
+  .teacher-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .teacher-info-img {
+    max-width: 100%; /* 讓圖片寬度佔滿 */
+  }
+
+  .teacher-info-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .teacher-info-text {
+    margin-left: 2rem;
+  }
+
+  /*--- 評價 --- */
+  .course-rating {
+    display: block;
+  }
+
+  .rating-right {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .progress {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .course-detail-container {
+    padding: 1rem 0;
+    background-color: var(--white);
+  }
+  /* --- 上方課程簡介 --- */
+  .course-detail {
+    position: relative;
+  }
+
+  .course-detail h1 {
+    margin-top: 10px;
+  }
+  .original-price {
+    position: absolute;
+    left: 140px;
+    bottom: 60px;
+  }
+  .shopping-btns {
+    display: block;
+  }
+
+  .shopping-btn {
+    margin-top: 1rem;
+  }
+
+  .buy-btn {
+    width: 100%;
+  }
+
+  .detail-nav-links {
+    display: none;
+  }
+
+  /* --- 中間課程內容 --- */
+  // .course-detail-container {
+  //   margin-top: 1.5rem;
+  // }
+
+  .title-block {
+    display: none;
+  }
+
+  .course-detail-title {
+    display: block;
+  }
+
+  .course-detail-content {
+    box-shadow: none;
+    padding: 0 0 3.5rem 0;
+  }
+
+  .section-detail-title {
+    margin: 1rem 0 1rem 0;
+  }
+
+  .content-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-detail-content {
+    max-height: 800px;
+  }
+
+  .expanded {
+    max-height: 10000px;
+  }
+
+  /* --- 關於講師 --- */
+  .teacher-info {
+    width: 100%;
+    display: block;
+  }
+
+  .teacher-info-img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .teacher-info-text h3 {
+    margin-bottom: 1rem;
+  }
+
+  .teacher-data {
+    display: block;
+  }
+
+  .data-item {
+    margin: 0.5rem 0;
+  }
+
+  /* --- 評價 --- */
+  .section-detail-title {
+    margin-top: 2rem;
+  }
+
+  .go-page-link {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .total-score {
+    display: none;
+  }
+  .score-area {
+    margin-left: 0;
+  }
+
+  .score-area .score {
+    font-size: 1.2rem;
+  }
+
+  .rating-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .star-area {
+    margin-left: 8px;
+  }
+
+  .all-comment-link {
+    margin: 0.5rem;
+  }
+
+  /* --- 相關課程推薦 --- */
+  .course-card {
+    margin-bottom: 1rem;
+  }
+
+  /* --- footer --- */
+  .footer-block {
+    margin: 2rem 0;
+  }
+
+  .copyright-text {
+    font-size: 0.7rem;
+  }
+}

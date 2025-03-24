@@ -1,0 +1,105 @@
+.y-pagination-css {
+  margin-top: 70px;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+}
+
+.y-pagination-css-ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center; /* 確保分頁內容水平置中 */
+  align-items: center;
+  li {
+    text-decoration: none;
+  }
+}
+
+.page-link a {
+  color: #777676;
+  &:hover {
+    color: #000;
+  }
+  &:focus {
+    color: #000;
+  }
+}
+
+.page-link {
+  width: 64px;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #777676;
+  border-bottom: 2px solid #777676 !important;
+  text-align: center;
+  background-color: transparent;
+}
+
+.page-link-next {
+  margin-left: 15px;
+  width: 64px;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #777676;
+  text-align: center;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
+  &:focus {
+    background-color: transparent;
+    color: #000;
+  }
+}
+
+.page-link-prev {
+  margin-right: 15px;
+  width: 64px;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #777676;
+  text-align: center;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
+  &:focus {
+    background-color: transparent;
+    color: #000;
+  }
+}
+
+.page-link:hover {
+  background-color: transparent;
+  border-bottom: 2px solid #000000 !important;
+  color: #000;
+}
+
+.page-link:focus {
+  background-color: transparent;
+  border-bottom: 2px solid #000000 !important;
+  color: #000;
+}
+
+.active {
+  border-bottom: 2px solid black !important;
+  background-color: transparent !important;
+}
+
+.page-link.active {
+  border-bottom: 2px solid black !important;
+  background-color: transparent !important;
+}
+
+// 如果使用 Bootstrap 的 active class，也可以全域覆蓋
+// :global(.page-item.active .page-link) {
+//   border-bottom: 2px solid black !important;
+//   background-color: transparent !important;
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+// }

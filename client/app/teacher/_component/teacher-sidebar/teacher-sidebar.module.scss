@@ -1,0 +1,431 @@
+/* --- sidebar --- */
+
+.col-md-3 {
+  padding: 0;
+  max-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16.5%;
+  background-color: var(--primary-color);
+  height: 100vh;
+  padding: 2rem;
+  z-index: 100;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.burgerMenu {
+  display: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: none;
+  color: var(--primary-color);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // 半透明黑色背景
+  z-index: 110;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.logo img {
+  width: 150px;
+}
+.logo hr {
+  color: var(--white);
+  width: 100%;
+}
+
+.teacher-sticker {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem 0 1rem 0;
+}
+.teacher-sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.teacher-data .teacher-name {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.teacher-data .teacher-email {
+  color: var(--gray--200);
+  font-size: 1rem;
+}
+
+.e-control-center {
+  margin-top: 5rem;
+}
+.e-control-center ul {
+  padding: 0;
+}
+.e-control-center li {
+  margin: 1.5rem 0;
+  list-style: none;
+}
+
+.e-control-center a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray--200);
+}
+
+.e-control-center a:hover {
+  color: var(--white);
+}
+
+.e-control-center {
+  color: var(--white);
+}
+
+.active {
+  color: var(--white);
+}
+
+.active a {
+  color: var(--white);
+}
+
+.logout {
+  margin-top: 320px;
+  bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray--200);
+}
+
+/* --- 內容區域 --- */
+
+.center-content-container {
+  padding: 1rem;
+}
+
+.center-content {
+  background-color: var(--bg-color-gray);
+  padding: 2rem 5rem;
+}
+
+.nav-bar h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color-med);
+}
+.nav-bar p {
+  font-size: 0.9rem;
+  color: var(--gray--400);
+}
+.control-btns {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btns-left {
+  display: flex;
+  gap: 10px;
+}
+
+.btns-left .filter a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color-med);
+  color: var(--white);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.btns-left .filter a:hover {
+  background-color: var(--primary-color);
+}
+
+.control-btns .add a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+  background-color: var(--warning-color);
+  color: var(--white);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.control-btns .add a:hover {
+  background-color: var(--warning-color-dark);
+  color: var(--white);
+}
+
+.control-btns p {
+  margin: 0;
+}
+
+.course-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 22rem;
+  border: 1px solid var(--line-color-gray-light);
+  border-radius: 25px;
+  padding: 8px 20px;
+}
+
+.search-btn {
+  position: absolute;
+  left: 305px;
+  background: none;
+  border: none;
+  padding-bottom: 3px;
+}
+
+/* --- 課程列表 --- */
+
+.table-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+.table-container tbody {
+  background-color: var(--white);
+}
+
+.table-container table {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table-container thead {
+  margin-top: 1rem;
+}
+
+.thead a {
+  color: var(--white);
+}
+
+.table-container th {
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.table-container tr {
+  border-bottom: 1px solid var(--line-color-gray-light2);
+  height: 50px;
+}
+
+.table-container .course-img {
+  width: 150px;
+  height: calc(150px * 9 / 16);
+
+  overflow: hidden;
+}
+
+.course-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.table-container thead th img {
+  margin-left: 5px;
+}
+
+.table-container thead th:first-child {
+  padding-left: 1rem;
+}
+.table-container thead th {
+  padding: 0 1rem;
+}
+.table-container tbody td:first-child {
+  padding-left: 1rem;
+}
+.table-container tbody td {
+  vertical-align: middle;
+  padding: 0.8rem 1rem;
+  height: 100%;
+}
+
+.edit-btn {
+  border: none;
+  background: none;
+  color: var(--secondary-color-dark);
+}
+.delete-btn {
+  border: none;
+  background: none;
+  color: var(--secondary-color-dark);
+}
+.state-circle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+.state {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--warning-color);
+}
+
+/* --- 分頁 --- */
+.pages-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.pages-container ul {
+  list-style: none;
+}
+
+.pages {
+  display: flex;
+  padding: 0;
+  color: var(--line-color-gray);
+}
+
+.page-arrow {
+  color: var(--line-color-gray);
+}
+
+.page-arrow:hover {
+  color: var(--black);
+}
+
+.pages li::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--line-color-gray-light);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pages li:hover::after {
+  background-color: var(--black);
+  transform: scaleY(2.5);
+}
+
+.pages li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  padding-bottom: 8px;
+}
+
+.page:hover {
+  color: var(--black);
+}
+
+/* --- footer --- */
+
+.copyright-right-div {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.copyright-right-div a {
+  color: var(--black);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+.copyright-text {
+  margin: 0 10px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1400px) {
+  /* 收合按鈕 */
+  .sidebar {
+    width: 30%;
+    background-color: var(--primary-color);
+    height: 100vh;
+    padding: 2rem;
+    z-index: 150;
+  }
+  .close-sidebar-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  .burgerMenu {
+    display: block !important;
+  }
+  .sidebar {
+    left: -500px; // 隱藏在左側
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 收合按鈕 */
+  .sidebar {
+    width: 50%;
+  }
+  .teacher-data .teacher-email {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  /* 收合按鈕 */
+  .sidebar {
+    width: 60%;
+  }
+}

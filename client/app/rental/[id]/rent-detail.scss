@@ -1,0 +1,600 @@
+/* BS 預設顏色 死亡全域修正 */
+.btn-primary {
+  color: #fff;
+  background: #23425a;
+  border-color: #23425a;
+  transition: none;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover,
+  &:disabled {
+    background: #143146;
+    border-color: #143146;
+  }
+}
+.btn-outline-primary {
+  color: #23425a;
+  border-color: #23425a;
+  transition: none;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    color: #fff;
+    background-color: #143146;
+    border-color: #143146;
+  }
+  &:disabled {
+    color: #143146;
+    border-color: #143146;
+  }
+}
+.btn-outline-warning {
+  color: #e58e41;
+  border-color: #e58e41;
+  transition: none;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    color: #fff;
+    background-color: #e58e41;
+    border-color: #e58e41;
+  }
+  &:disabled {
+    color: #e58e41;
+    border-color: #e58e41;
+  }
+}
+.btn-outline-info {
+  color: #807871;
+  border-color: #807871;
+  transition: none;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    color: #fff;
+    background-color: #807871;
+    border-color: #807871;
+  }
+  &:disabled {
+    color: #807871;
+    border-color: #807871;
+  }
+}
+// 輸入框
+.form-control:focus {
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+
+/* 全頁面 */
+.k-body {
+  background-color: #f6f7f9;
+  color: #252525;
+  a {
+    text-decoration: none;
+  }
+  .k-body-2 {
+    background-color: #23425a;
+  }
+}
+// 文字顏色
+.k-main-text {
+  color: #23425a;
+}
+.k-warn-text {
+  color: #e58e41;
+}
+.k-warn-dark-text {
+  color: #ca6d1b;
+}
+.k-status-text {
+  color: #d0b088;
+}
+.k-aux-color-1 {
+  color: #8f8f8f;
+}
+.k-aux-color-2 {
+  color: #7e7267;
+}
+
+// 麵包屑
+.k-breadcrumb {
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '>';
+    font-size: 14px;
+    color: #807871;
+  }
+  a {
+    color: #23425a;
+  }
+}
+
+// 大部分按鈕 圓角
+.k-main-radius {
+  border-radius: 50px;
+}
+
+/* 左半邊 */
+.k-picture-bg {
+  background: #fff;
+  max-width: 594px;
+  margin: auto;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+.k-thumbnails-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  @media (min-width: 768px) and (max-width: 991px) {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  @media (min-width: 1200px) {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  @media (min-width: 1399px) {
+    margin-left: 75px;
+    margin-right: 75px;
+  }
+}
+.k-thumbnail {
+  img {
+    border: 4px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    width: 100%;
+    height: auto;
+    &.active {
+      border-color: #23425a;
+    }
+    &:hover:not(.active) {
+      border-color: #ccc;
+    }
+    @media (max-width: 576px) {
+      border: 3px solid transparent;
+    }
+  }
+}
+// 黏貼容器
+.k-picture-container {
+  transition: all 0.3s ease;
+  height: auto;
+  min-height: 710px;
+  @media (max-width: 991px) {
+    min-height: auto;
+  }
+}
+// (大螢幕)
+.sticky .k-picture-sticky {
+  position: sticky;
+  top: 144px;
+  @media (max-width: 1540px) {
+    top: 100px;
+  }
+}
+// (小螢幕)
+.relative .k-picture-sticky {
+  position: relative;
+  top: auto;
+}
+
+/* 右半邊 */
+.k-tabs {
+  .tab-radius {
+    border-radius: 5px 5px 0 0;
+    &:hover,
+    &:active,
+    &:active:focus,
+    &:active:hover {
+      opacity: 0.95;
+    }
+  }
+  .active {
+    background: #143146;
+  }
+}
+.k-card-radius {
+  border-radius: 0 0 5px 5px;
+}
+// 資料並排
+.k-append-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); // 兩欄
+  gap: 10px;
+  max-width: 100%;
+}
+.k-append-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.k-append-item {
+  white-space: nowrap;
+  flex: 1;
+  text-align: left;
+}
+.k-tbody tr:last-child th,
+.k-tbody tr:last-child td {
+  border-bottom: none;
+  padding-bottom: 0 !important;
+}
+// 須知按鈕
+.k-policy-btn {
+  padding: 0 5px;
+  border: transparent;
+  background: transparent;
+  color: #23425a;
+  font-size: 22px;
+  vertical-align: middle; // 確保圖示與文字垂直置中
+  line-height: 1; // 避免圖示影響行高
+  margin-top: -0.37rem;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover,
+  &:disabled {
+    color: #143146;
+  }
+}
+// 商品標籤
+.k-tag-bg {
+  color: #fff;
+  background-color: #23425a;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    background: #143146;
+    cursor: default;
+  }
+}
+.k-detail-tag {
+  @media (max-width: 767px) {
+    line-height: 1.1;
+    font-size: 13px;
+  }
+}
+// 商品評論
+.k-star {
+  vertical-align: middle; // 確保圖示與文字垂直置中
+  line-height: 1; // 避免圖示影響行高
+  margin-top: -0.1rem;
+}
+/* 下半部 */
+.k-recommend-title {
+  display: flex;
+  gap: 15px;
+}
+// 裝飾區塊
+.k-title-block {
+  width: 8px;
+  background-color: var(--warning-color);
+}
+// 分頁按鈕
+.k-recommend {
+  color: #143146;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  .left-btn {
+    padding: 0 2px 3px 0;
+  }
+  .right-btn {
+    padding: 0 1px 3px 1px;
+  }
+}
+// 商品卡片
+.k-card-2 {
+  background: #fff;
+  border: transparent !important;
+  box-shadow: none !important;
+  transition: transform 0.3s ease-in-out;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  &:hover {
+    transform: scale(1.03);
+    // box-shadow: inset 0 0 0 1px #23425a;
+  }
+}
+// 商品類別
+.k-type-bg-2 {
+  color: #fff;
+  background-color: #143146;
+}
+// 商品星星
+.k-star {
+  vertical-align: middle; // 確保圖示與文字垂直置中
+  line-height: 1; // 避免圖示影響行高
+  margin-top: -0.16rem;
+}
+// 商品評論
+.k-comment {
+  vertical-align: middle; // 確保圖示與文字垂直置中
+  line-height: 1; // 避免圖示影響行高
+  font-size: 15px;
+  margin-top: -0.1rem;
+}
+// 商品收藏
+.k-favorite-icon {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+// 彈窗(auth)
+.k-auth-swal-top-bar {
+  width: 100%;
+  height: 34px; // 裝飾條的高度
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 24px,
+    #5292c5 10px,
+    #5292c5 48px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.k-auth-swal-icon {
+  top: 10px;
+}
+.k-auth-swal-popup {
+  padding-top: 10px !important; // 裝飾條
+  overflow: hidden; //  確保裝飾條不會超出邊界
+}
+.k-auth-swal-btn-1 {
+  background-color: #5292c5;
+  border-radius: 50px;
+}
+.k-auth-swal-btn-2 {
+  background-color: #807871;
+  border-radius: 50px;
+}
+
+// 彈窗(policy)
+.k-policy-swal-top-bar {
+  width: 100%;
+  height: 34px; // 裝飾條的高度
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 24px,
+    #5292c5 10px,
+    #5292c5 48px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.k-policy-swal-text {
+  text-align: center;
+  line-height: 1.8;
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
+.k-policy-swal-text-m {
+  text-align: center;
+  line-height: 1.8;
+  padding: 0;
+  margin: 0;
+  li {
+    margin-right: 5px;
+    list-style: none;
+  }
+}
+.k-policy-swal-icon {
+  top: 10px;
+}
+.k-policy-swal-popup {
+  padding-top: 10px !important; // 裝飾條
+  overflow: hidden; //  確保裝飾條不會超出邊界
+}
+.k-policy-swal-btn {
+  background-color: #5292c5;
+  border-radius: 50px;
+}
+
+// 彈窗(error)
+.k-error-swal-top-bar {
+  width: 100%;
+  height: 34px; // 裝飾條的高度
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 24px,
+    #e58e41 10px,
+    #e58e41 48px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.k-error-swal-icon {
+  top: 10px;
+}
+.k-error-swal-popup {
+  padding-top: 10px !important; // 預留空間給裝飾條
+  overflow: hidden; // 確保裝飾條不會超出邊界
+}
+.k-error-swal-btn {
+  background-color: #e58e41;
+  border-radius: 50px;
+}
+// 彈窗吐司
+@keyframes k-toast-bounce {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.k-swal-toast-icon {
+  border: none;
+  color: #fff;
+  right: -3px;
+  width: 40px;
+  height: 40px;
+  animation: k-toast-bounce 0.8s ease forwards;
+}
+.k-swal-toast-popup {
+  padding-top: 8px !important;
+  top: 82px !important;
+}
+.k-swal-toast-close {
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.3s;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    color: #e58e41;
+  }
+}
+.k-swal-toast-progress {
+  background: linear-gradient(90deg, #e58e41, #f1cf99);
+  height: 10px;
+  border-radius: 5px;
+}
+
+// 彈窗(small)
+.k-swal-small-icon {
+  top: 10px;
+}
+.k-swal-small-popup {
+  width: 360px;
+  padding-top: -10px !important; // 裝飾條
+  overflow: hidden; //  確保裝飾條不會超出邊界
+}
+.k-swal-small-btn {
+  background-color: #5292c5;
+  border-radius: 50px;
+}
+
+// 彈窗(review)
+.k-review-swal-popup {
+  border-radius: 15px;
+  width: 495px;
+}
+.k-review-swal-actions {
+  justify-content: flex-end;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+.k-review-swal-btn-1 {
+  background-color: #5292c5;
+  border-radius: 50px;
+}
+.k-review-swal-btn-2 {
+  background-color: #807871;
+  border-radius: 50px;
+}
+.k-swal-label {
+  text-align: left; /* 保證靠左對齊 */
+  margin-bottom: 5px; /* 調整間距 */
+  font-weight: 500; /* 讓字體看起來更專業 */
+}
+// 彈窗(slide)
+.k-slide-swal-icon {
+  border: none;
+  color: #fff;
+  top: 50px;
+  right: 10px;
+  width: 250px;
+  height: 250px;
+  animation: k-toast-bounce 0.8s ease forwards;
+  @media (min-width: 991px) and (max-width: 1200px) {
+    width: 220px;
+    height: 220px;
+  }
+  @media (max-width: 576) {
+    width: 150px;
+    height: 150px;
+    padding-bottom: 4px;
+  }
+}
+.k-slide-swal-title {
+  padding: 0;
+  font-size: 17px;
+  left: 17px;
+  top: -56px;
+  animation: k-toast-bounce 0.8s ease forwards;
+  @media (min-width: 991px) and (max-width: 1200px) {
+    font-size: 15px;
+    left: 13px;
+    top: -45px;
+  }
+  @media (max-width: 576px) {
+    color: transparent;
+    font-size: 11px;
+    left: 6px;
+    top: -18px;
+  }
+}
+.k-slide-swal-text {
+  padding: 10px;
+  top: -12px;
+}
+.k-slide-swal-popup {
+  right: 285px;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+  height: auto;
+  width: 300px;
+  @media (max-width: 1400px) {
+    right: 250px;
+  }
+  @media (max-width: 1200px) {
+    right: 208px;
+  }
+  @media (max-width: 991px) {
+    right: 0;
+  }
+  @media (max-width: 390px) {
+    bottom: 131px;
+  }
+}
+.k-slide-swal-actions {
+  justify-content: flex-end;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}

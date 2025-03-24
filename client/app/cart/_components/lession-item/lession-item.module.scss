@@ -1,0 +1,79 @@
+.j-lsText {
+  font-size: 16px;
+  color: #e58e41;
+  
+}
+.j-lsTitle{
+  font-size: 14px;
+  color: black;
+  max-width: 150px;
+  display: block;
+  overflow-wrap: break-word;
+}
+.j-cartItem {
+  border-radius: 20px;
+  background-color: #fff;
+  gap: 10px;
+}
+
+.j-lessonImg img {
+  width: 109px;
+  height: 89px;
+}
+
+.j-delBtn > button:active,
+.j-delBtnfocus > button:focus,
+.j-delBtn > button:not(.j-cartItem) {
+  border: none;
+}
+
+.j-delBtn {
+  left: 92.5%;
+}
+
+
+@media (min-width: 1400px) {
+  .j-lsText {
+    font-size: 16px;
+  }
+  .j-lsTitle{
+    max-width: 160px;
+  }
+  
+}
+
+@media (max-width: 1200px) {
+  .j-lsTitle{
+    max-width: 150px;
+  }
+  .j-delBtn {
+    left: 90%
+  }
+}
+@media (max-width: 996px) {
+  .j-lsTitle{
+    max-width: 200px;
+  }
+  .j-lsText {
+    font-size: 16px;
+  }
+ 
+}
+
+
+@media (max-width: 768px) {
+  .j-lsTitle{
+    max-width: 150px;
+  }
+  .j-lsText {
+    font-size: 16px;
+  }
+ 
+}
+
+@media (max-width: 450px) {
+  .j-lsTitle{
+    font-size: 14px;
+    max-width: 160px;
+  }
+}

@@ -1,0 +1,137 @@
+  .j-page-wrapper{
+    min-height: 93vh;
+  }
+
+  .j-publicFont {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+
+  .j-shoppingCartTitleBox .j-shoppingCartTitle {
+    font-size: 2.1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .j-shoppingCartTitleBox small {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .j-emptyShoppingImg {
+    width: 446px;
+    height: 315px;
+    flex-shrink: 0;
+  }
+
+  .j-emptyShoppingImg img {
+    border-radius: 25px;
+  }
+
+  .j-emptyShoppingTitle {
+    color: #fff;
+    bottom: 16%;
+    left: 20%;
+  }
+
+  .j-linkCamera {
+    color: #000;
+    padding: 15px 18px;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 50px;
+    font-size: 12px;
+  }
+
+  .j-AllcameraTitle {
+    font-size: 18px;
+  }
+
+  .j-illustrateBox {
+    width: 446px;
+    height: 315px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #fff;
+  }
+
+  .j-illustrate {
+    bottom: 40%;
+    left: 15%;
+  }
+  @media (max-width: 1400px) {
+    .j-emptyShoppingTitle {
+      color: #fff;
+      bottom: 16%;
+      left: 15%;
+    }
+  }
+  @media (max-width: 1200px) {
+    .j-emptyShoppingTitle {
+      color: #fff;
+      bottom: 16%;
+      left: 8%;
+    }
+  }
+  @media (max-width: 996px) {
+    .j-emptyShoppingTitle {
+      color: #fff;
+      bottom: 60%;
+      left: 28%;
+    }
+  }
+  @media (max-width: 768px) {
+    .j-emptyShoppingTitle {
+      color: #fff;
+      bottom: 60%;
+      left: 20%;
+    }
+  }
+  @media (max-width: 576px) {
+    .j-emptyShoppingTitle {
+      color: #fff;
+      bottom: 60%;
+      left: 20%;
+    }
+    .j-illustrate{
+      bottom: 15%;
+      left: 15%;
+      margin-bottom: 50px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    
+    .j-shoppingCartTitleBox .j-shoppingCartTitle {
+      font-size: 2.1rem;
+    }
+
+    .j-emptyShoppingImg img {
+      width: 390px;
+    }
+
+    .j-emptyShoppingImgBox {
+      width: 390px;
+    }
+
+    .j-emptyShoppingTitle{
+      color: #fff;
+      bottom: 62%;
+      left: 15%;
+    }
+    
+    .j-illustrate {
+      bottom: 15%;
+      left: 15%;
+    }
+
+    .j-linkCamera{
+      padding: 10px 15px;
+    }
+    
+  }

@@ -1,0 +1,77 @@
+/* 課程區塊背景 */
+.courseArea {
+    background-color: #23425A;
+    color: white;
+  }
+  
+  /* 課程標題 */
+  .courseTitle {
+    background-color: transparent;
+    font-family: "Noto Sans TC", serif;
+    font-weight: 900;
+    border-left: solid 7px #f9a11b;
+  }
+  
+  /* 課程卡片 */
+  .courseCard {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  
+    &:hover .courseImg {
+      transform: scale(1.03);
+    }
+  }
+  
+  /* 課程圖片 */
+  .courseImg {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* 課程內容 */
+  .courseCardBody {
+    font-family: "Noto Sans TC", serif;
+    font-weight: 900;
+  }
+  
+  .courseCardTitle {
+    font-size: 1.25rem;
+  }
+  
+  .courseCardText {
+    font-size: 1rem;
+  }
+  
+  /* 課程評分 */
+  .courseRating {
+    font-size: 1rem;
+    color: gold;
+  }
+  
+  /* 活動按鈕 */
+  .btnSale2 {
+    padding: 5px 20px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+  }
+  
+  /* 連結樣式 */
+  .textDecoration {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+  }
+  
+  .textDecoration:hover {
+    color: #2fa0f1;
+  }
+  .noUnderline{
+    text-decoration: none;
+    color:white;
+  }
+  

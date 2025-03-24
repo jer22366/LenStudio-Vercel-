@@ -1,0 +1,265 @@
+.y-list-title {
+  width: 100%;
+  button {
+    background-color: #ffffff00;
+    border: none;
+    color: #000;
+  }
+}
+
+//圖片渲染
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+.y-user-list-profile {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.y-article-list-tag {
+  p {
+    color: #7e7267;
+  }
+  button {
+    border: none;
+    background-color: #ffffff00;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.y-list-card-content {
+  h5 {
+    color: #000;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.y-author-date {
+  p {
+    color: #757776;
+  }
+}
+
+.y-list-card-area {
+  .y-card {
+    margin-top: 70px;
+    border: none;
+    border-radius: 0;
+    background-color: #ffffff00;
+
+    img {
+      border-radius: 0;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+  }
+}
+
+.y-tag-area {
+  font-size: 14px;
+  button {
+    margin: 0 auto;
+    background-color: #ffffff00;
+    border: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.card-sub-title {
+  color: #7f7f7f;
+}
+
+.one-line-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+  .y-list-card-area {
+    .y-card {
+      display: flex;
+      flex-direction: row;
+      margin-top: 30px;
+
+      /* 圖片容器 */
+      .image-link {
+        width: 40%;
+        margin-right: 15px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+
+      /* 卡片內容區塊 */
+      .y-card-body-css {
+        width: 60%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        /* 標題、類別和標籤的容器 */
+        .content-top-section {
+          margin-bottom: 5px;
+        }
+
+        /* 調整文章標題大小 */
+        .y-list-card-content {
+          margin-bottom: 0 !important; /* 取消標題下方間距 */
+
+          h5 {
+            font-size: 1rem;
+            margin-bottom: 2px; /* 減少標題底部間距 */
+          }
+
+          p {
+            font-size: 0.85rem;
+            margin-bottom: 2px; /* 減少段落底部間距 */
+          }
+        }
+        .y-article-list-tag {
+          font-size: 12px;
+        }
+
+        /* 調整標籤區域 */
+        .y-tag-area {
+          margin-top: 2px !important;
+          margin-bottom: 2px !important;
+          font-size: 0.8rem;
+          line-height: 1;
+        }
+
+        /* 調整類別區域 */
+        .y-article-list-tag {
+          margin-bottom: 2px !important;
+          line-height: 1;
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+        /* 調整作者區域 - 與上方內容保持距離 */
+        .y-author-date {
+          font-size: 0.85rem;
+          margin-top: auto; /* 推至底部 */
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .y-list-card-area {
+    .y-card {
+      /* 圖片容器 */
+      .image-link {
+        width: 40%;
+
+        img {
+          aspect-ratio: 1/1; /* 保持正方形比例 */
+        }
+      }
+
+      /* 隱藏副標題 */
+      .y-card-body-css {
+        .y-list-card-content {
+          p.card-sub-title,
+          .one-line-ellipsis {
+            display: none; /* 隱藏副標題 */
+          }
+
+          h5 {
+            font-size: 0.9rem; /* 稍微縮小標題文字 */
+          }
+        }
+
+        /* 調整標籤區塊 */
+        .y-tag-area {
+          /* 標籤文字更小 */
+          font-size: 0.75rem;
+        }
+
+        /* 調整作者區塊 */
+        .y-author-date {
+          font-size: 0.75rem;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .y-list-card-area {
+    .y-card {
+      /* 圖片容器 */
+      .image-link {
+        width: 35%; /* 稍微縮小圖片寬度 */
+        margin-right: 10px;
+      }
+
+      /* 卡片內容區塊 */
+      .y-card-body-css {
+        width: 65%; /* 相應增加文字區域寬度 */
+
+        .y-list-card-content {
+          h5 {
+            font-size: 0.85rem; /* 更小的標題字體 */
+            line-height: 1.2;
+          }
+        }
+
+        /* 調整標籤區塊 - 增加與下方元素的間距 */
+        .y-tag-area {
+          font-size: 0.7rem; /* 更小的標籤文字 */
+          margin-bottom: 8px !important; /* 增加底部間距 */
+          padding-bottom: 2px; /* 增加內部底部填充 */
+        }
+
+        /* 調整作者區塊 */
+        .y-author-date {
+          font-size: 0.7rem; /* 更小的作者文字 */
+          margin-top: 4px; /* 增加頂部間距 */
+
+          img {
+            width: 20px; /* 頭像尺寸設為 20px */
+            height: 20px;
+          }
+        }
+
+        /* 調整類別區域 */
+        .y-article-list-tag {
+          font-size: 0.7rem; /* 更小的類別文字 */
+        }
+      }
+    }
+  }
+
+  /* 調整所有卡片的上方間距 */
+  .y-list-card-area .y-card {
+    margin-top: 20px; /* 減少卡片間距 */
+  }
+}

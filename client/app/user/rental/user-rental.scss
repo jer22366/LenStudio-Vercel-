@@ -1,0 +1,148 @@
+.btn-info {
+  color: #fff;
+  background: #5292c5;
+  border-color: #5292c5;
+  transition: none;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover,
+  &:disabled {
+    color: #fff;
+    opacity: 0.9;
+    background: #5292c5;
+    border-color: #5292c5;
+  }
+}
+// 大部分按鈕 圓角
+.k-main-radius {
+  border-radius: 50px;
+}
+// 文字顏色
+.k-main-text {
+  color: #23425a;
+}
+.k-warn-text {
+  color: #e58e41;
+}
+.k-warn-dark-text {
+  color: #ca6d1b;
+}
+.k-status-text {
+  color: #d0b088;
+}
+.k-aux-color-1 {
+  color: #8f8f8f;
+}
+.k-aux-color-2 {
+  color: #7e7267;
+}
+.k-aux-color-3 {
+  color: #f1cf99;
+}
+
+// 彈窗評論修改
+.k-review-swal-popup {
+  border-radius: 15px;
+  width: 495px;
+}
+.k-review-swal-actions {
+  justify-content: flex-end;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+.k-review-swal-btn-1 {
+  background-color: #5292c5;
+  border-radius: 50px;
+}
+.k-review-swal-btn-2 {
+  background-color: #807871;
+  border-radius: 50px;
+}
+.k-review-swal-btn-3 {
+  background-color: #c43b45;
+  border-radius: 50px;
+}
+.k-swal-margin-auto {
+  margin-left: auto;
+}
+.k-swal-label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.k-swal-small-popup {
+  width: 450px;
+}
+
+// 彈窗吐司
+@keyframes k-toast-bounce {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.k-swal-toast-icon {
+  border: none;
+  color: #fff;
+  right: -3px;
+  width: 40px;
+  height: 40px;
+  animation: k-toast-bounce 0.8s ease forwards;
+  strong {
+    color: #f1cf99;
+  }
+}
+.k-swal-toast-popup {
+  padding-top: 8px !important;
+  top: 82px !important;
+}
+.k-swal-toast-close {
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.3s;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    color: #e58e41;
+  }
+}
+.k-swal-toast-progress {
+  background: linear-gradient(90deg, #e58e41, #f1cf99);
+  height: 10px;
+  border-radius: 5px;
+}
+
+// 快速留言
+.k-quick-reply-container {
+  display: flex;
+}
+.k-quick-reply-btn {
+  padding: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border: none;
+  background-color: transparent;
+  line-height: 1;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover,
+  &:disabled {
+    opacity: 0.8;
+  }
+}

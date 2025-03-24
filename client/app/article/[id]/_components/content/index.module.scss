@@ -1,0 +1,109 @@
+.y-content-image {
+  flex: 1;
+  max-width: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    will-change: transform;
+  }
+}
+
+.y-content-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+.y-img-fluid {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.y-end-line {
+  border-bottom: 2px solid #000;
+  width: 100%;
+}
+
+// .article-image-fade {
+//   opacity: 0;
+//   transform: scale(0.96);
+//   filter: blur(4px);
+//   animation: fadeInCenter 0.5s ease-in forwards;
+// }
+
+
+
+@media screen and (max-width: 390px) {
+  .y-article-content {
+    section {
+      width: 100% !important;
+      max-width: 390px !important;
+      display: flex !important;
+      flex-direction: column !important;
+
+      .y-content-image {
+        max-width: 100%;
+      }
+
+      .y-content-text {
+        margin-top: 30px;
+        max-width: 100%;
+      }
+      .y-content-image-6 {
+        margin-top: 30px !important;
+      }
+    }
+  }
+  .y-section-7-mb {
+    word-break: break-word;
+  }
+}
+
+.content {
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    will-change: transform;
+    opacity: 0; // 初始隱藏
+    transition: transform 0.8s ease;
+    /* 直接加入動畫 */
+    animation: fadeInCenter 0.8s ease-in forwards;
+  }
+}
+
+@keyframes fadeInCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(4px);
+  }
+  25% {
+    opacity: 0.25;
+    transform: scale(0.97);
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.98);
+    filter: blur(2px);
+  }
+  75% {
+    opacity: 0.75;
+    transform: scale(0.99);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.loaded {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  filter: blur(0) !important;
+}

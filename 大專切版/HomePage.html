@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <title>Home Page</title>
+    <style>
+        * {
+        box-sizing: border-box;
+    }
+
+        header {
+            height: 80px;
+            background-color: #143146;
+            color: white;
+            display: flex;
+            align-items: center;
+
+        }
+        .header-logo{
+            margin-left: 5%;
+            img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* nav-link */
+        .navbar-nav a:focus {
+            color: #F1CF99;
+            border-bottom: solid .5px #F1CF99;
+        }
+        .navbar-nav a {
+            color: white;
+            margin: 0 10px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 0;
+            height: 0.5px;
+            background-color: #F1CF99;
+            transition: width 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #F1CF99;
+        }
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* header-icons */
+        .header-icons {
+        display: flex;
+        align-items: center;
+        margin-right:5%;
+            a {
+                margin-left: 15px;
+            }
+        }
+
+
+        /* News-slider */
+        .my-slider-progress {
+            background: #ccc;
+        }
+        
+        .my-slider-progress-bar {
+            background: #7E7267;
+            height: 2px;
+            transition: width 400ms ease;
+            width: 0;
+        }
+        .splide__slide img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .splide__slide{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .text-DM{
+            background: linear-gradient(to top, #000000a9, #ffffff00);
+            width: 100%;
+            height: 25%;
+            position: absolute;
+            bottom: 0;
+            padding-left: 5%;
+            padding-bottom: 5%;
+            font-family: "Noto Sans HK", serif;
+            color: white;
+        }
+        .btn-sale{
+            padding: 5px 20px;
+            border-radius: 25px;
+            background-color: #E58E41;
+            border: none;
+            color: white;
+        }
+
+        /* News-card */
+        .News-card{
+            background-color: #23425A;
+        }
+        .News-card-content{
+            border-radius: 15px;
+        }
+        .tag-product{
+            margin-top: 2px;
+        }
+        .tag-product span{
+            background-color: #807871;
+            color: white;
+            padding: 5px 10px;
+        }
+        .undertext{
+            margin:0 10px;
+        }
+        .undertext p{
+            color: #1E3C54;
+        }
+        .undertext a{
+            color: #807871;
+        }
+        .card-news-img img{
+            border-radius: 15px 0 0 15px;
+        }
+        .btn-more button{
+            background-color: #E58E41;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 5px 20px;
+            font-family: "Noto Sans HK", serif;
+            font-size: 16px;
+        }
+        .btn-more button:hover{
+            background-color: #FFF;
+            color: #E58E41;
+        }
+
+        /* product-card */
+
+        .product-area{
+            background-color: #143146;
+        }
+        .card-area{
+            border-radius: 10px;
+        }
+        .card-img-area{
+            span{
+                color: #807871;
+                border: solid 1px #807871;
+            }
+            span:hover{
+                background: #807871;
+                color: white;
+            }
+        }
+
+        .product-card {
+            background-color: #ffffff; /* 卡片背景色 */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-btn a{
+            display: none;
+        }
+        search-btn2 a{
+            display: inline;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            background-color: #D0B088;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            .card-area{
+                box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.5);
+            }
+            .search-btn a{
+                    display: inline;
+            }
+            .search-btn2 a{
+            display: none;
+            }
+        }  
+        .search-btn a:hover{
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform: scale(1.1);
+        }
+
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 0.8rem;
+        }
+
+        .badge {  
+            font-size: 0.8rem;
+            padding: 0.4em 0.6em;
+        }
+
+
+        /* article-card */
+        .article-area{
+            background-color: #23425A;
+        }
+        .article-card{
+            border-radius: 15px;
+        }
+        .article-card:hover{
+            background-color: #7E7267;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+                transform: scale(1.01);
+            p{
+                color: white;
+            }
+            h4{
+                color: white;
+            }
+            .user-name{
+                color: white !important;
+            }
+            /* .article-card-img img{
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                transform: scale(1.1);
+            } */
+        }
+        .article-card p{
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .article-card h4{
+            color: #1E3C54;
+            font-size: 1.5rem;
+        }
+        .article-card .tag{
+            color: #996A4E;
+        }
+        .user-name{
+            color: #996A4E !important;
+        }
+
+        .article-user-profile{
+            border-radius: 50%;
+            width: 50px;
+        }
+
+        /* course-area */
+        .course-area {
+            background-color: #143146;
+            color: white;
+        }
+        .course-title {
+            background-color: #14314600;
+            font-family: "Noto Sans TC", serif;
+            font-weight: 900;
+            border-left: solid 7px #f9a11b;
+        }
+        .course-card {
+            background-color: #34495e00;
+            border: none;
+            height: 100%;
+            img {
+                border-radius: 15px;
+            }
+        }
+        course-card-body{
+            font-family: "Noto Sans TC", serif;
+            font-weight: 900;
+        }
+        .course-card-title {
+            font-size: 1.25rem;
+        }
+        .course-card-text {
+            font-size: 1rem;
+        }
+        .course-rating {
+            font-size: 1rem;
+            color: gold;
+        }
+        .course-card {
+            overflow: hidden; /* Ensure the image doesn't overflow the card */
+        }
+
+        .course-img {
+            transition: transform 0.3s ease; /* Smooth transition for the transform */
+        }
+
+        .course-card:hover .course-img {
+            transform: scale(1.03); /* Slightly enlarge the image on hover */
+        }
+
+        /* event */
+        .btn-sale2{
+            padding: 5px 20px;
+            border-radius: 25px;
+            background-color: #ffffff00;
+            border: none;
+            color: #ffffff;
+        }
+        .text-decoration {
+            color: white;
+            text-decoration: none;
+            font-size: 2em;
+        }
+
+        .text-decoration:hover {
+            color: #2fa0f1;
+        }
+
+
+        /* footer */
+        .footer {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans HK', sans-serif;
+            background-color: #8c8279;
+            color: white;
+            padding: 40px 0;
+        }
+        .footer h5 {
+            color: rgb(255, 255, 255);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons a {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: white;
+        }
+        .footer .social-icons a:hover {
+            color: #143146;
+        }
+
+
+        /* copyright */
+        .copyright {
+            background-color: #1b3b4f; /* 深藍色背景 */
+            color: #ffffff; /* 白色文字 */
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }  
+        .copyright a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }  
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="d-flex justify-content-between w-100">
+            <div class="header-logo">
+                <a class="navbar-brand text-white" href="#">
+                    <img src="/HomePage-images/camera_logo_ol-02.svg" alt="">
+                </a>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">產品系列</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">租借服務</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">影像學院</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">影像誌</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">聯絡我們</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="header-icons">
+                <a href="">
+                    <img src="/HomePage-images/search.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="/HomePage-images/user.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="/HomePage-images/bag.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- News-slider -->
+    <div class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+                <div class="text-DM">
+                    <h3>新發售</h3>
+                    <h1 class="ms-5 mt-2">Leica Q3 43</h1>
+                    <button class="btn-sale mt-2">
+                        <a class="text-decoration-none text-white" href="">探索詳情</a>
+                    </button>
+                </div>
+                <img src="/HomePage-images/SC1.jpg" alt="">
+            </li>
+            <li class="splide__slide">
+                <div class="text-DM">
+                    <h3>新發售</h3>
+                    <h1 class="ms-5 mt-2">Leica M11 Glossy</h1>
+                    <button class="btn-sale mt-2">
+                        <a class="text-decoration-none text-white" href="">探索詳情</a>
+                    </button>
+                </div>
+                <img src="/HomePage-images/Leica_M11_Glossy_home_3840x2160.jpg.webp" alt="">
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Add the progress bar element -->
+        <div class="my-slider-progress">
+          <div class="my-slider-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- News-card -->
+    <div class="News-card py-4 px-4">
+        <!-- 標題 -->
+        <h2 class="text-white text-center mb-5">最新消息</h2>  
+        <!-- 卡片區塊 -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-4">
+
+            <!-- 卡片 1 -->
+            <div class="col">
+                <div class="card h-100 d-flex flex-row News-card-content">
+                    <div class="col-4 card-news-img">
+                        <img src="/HomePage-images/news (1).jpg" class="img-fluid h-100" style="object-fit: cover;" alt="Card Image">
+                    </div>
+                    <div class="col-8 d-flex flex-column justify-content-between">
+                        <div class="tag-product">
+                            <span>產品情報</span>
+                        </div>
+                        <div>
+                            <h4 class="card-title mt-2 mb-5 mx-2">Sony α1 II 當代全能旗艦相機重磅登場</h4>
+                        </div>
+                        <div class="d-flex justify-content-between undertext">
+                            <p class="card-text">2024.11.20</p>
+                            <a href="#" class="btn btn-link text-decoration-none">More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 2 -->
+            <div class="col">
+                <div class="card h-100 d-flex flex-row News-card-content">
+                    <div class="col-4 card-news-img">
+                        <img src="/HomePage-images/news (1).webp" class="img-fluid h-100" style="object-fit: cover;" alt="Card Image">
+                    </div>
+                    <div class="col-8 d-flex flex-column justify-content-between">
+                        <div class="tag-product">
+                            <span>攝影活動</span>
+                        </div>
+                        <div>
+                            <h4 class="card-title mt-2 mb-5 mx-2">台北攝影器材展Nikon三大亮點，福袋加碼送Z系列鏡頭，總價值超過25萬</h4>
+                        </div>
+                        <div class="d-flex justify-content-between undertext">
+                            <p class="card-text">2024.12.31</p>
+                            <a href="#" class="btn btn-link text-decoration-none">More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="col">
+                <div class="card h-100 d-flex flex-row News-card-content">
+                    <div class="col-4 card-news-img">
+                        <img src="/HomePage-images/news (2).webp" class="img-fluid h-100" style="object-fit: cover;" alt="Card Image">
+                    </div>
+                    <div class="col-8 d-flex flex-column justify-content-between">
+                        <div class="tag-product">
+                            <span>產品情報</span>
+                        </div>
+                        <div>
+                            <h4 class="card-title mt-2 mb-5 mx-2">Leica Q3 43 評測報告｜APO 大光圈鏡頭加持、領略減法攝影的美好！</h4>
+                        </div>
+                        <div class="d-flex justify-content-between undertext">
+                            <p class="card-text">2024.10.11</p>
+                            <a href="#" class="btn btn-link text-decoration-none">More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 4 -->
+            <div class="col">
+                <div class="card h-100 d-flex flex-row News-card-content">
+                    <div class="col-4 card-news-img">
+                        <img src="/HomePage-images/news (2).webp" class="img-fluid h-100" style="object-fit: cover;" alt="Card Image">
+                    </div>
+                    <div class="col-8 d-flex flex-column justify-content-between">
+                        <div class="tag-product">
+                            <span>訊息公告</span>
+                        </div>
+                        <div>
+                            <h4 class="card-title mt-2 mb-5 mx-2">2024 春節配送公告</h4>
+                        </div>
+                        <div class="d-flex justify-content-between undertext">
+                            <p class="card-text">2024.01.16</p>
+                            <a href="#" class="btn btn-link text-decoration-none">More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 查看更多按鈕 -->
+        <div class="text-center my-5 btn-more">
+            <button class=" px-4 py-2">查看更多</button>
+        </div>
+    </div>
+
+    <!-- product-card -->
+    <div class="product-area text-white py-5">
+    <div class="mx-5 py-5">
+        <h2 class="text-center mb-5">產品推薦</h2>
+        <div class="row g-5">
+            <!-- Card 1 -->
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="card-area bg-white mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2 px-2 py-2 card-img-area">
+                                <span class="badge rounded-pill">Leica 徠卡</span>
+                                <img src="/HomePage-images/camera-Icon.svg" alt="">
+                            </div>
+                            <img src="/HomePage-images/product (1).png" class="card-img-top rounded main-product-img" alt="Leica">
+                        </div>
+                        <div class="product-detail">
+                            <h5 class="card-title">Q3 43</h5>
+                            <p class="card-text text-black">徠卡系列首款43mm焦段</p>
+                        </div>
+                        <div class="search-btn d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-black.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="search-btn2 d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-white.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="card-area bg-white mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2 px-2 py-2 card-img-area">
+                                <span class="badge rounded-pill">Leica 徠卡</span>
+                                <img src="/HomePage-images/camera-Icon.svg" alt="">
+                            </div>
+                            <img src="/HomePage-images/product (1).png" class="card-img-top rounded main-product-img" alt="Leica">
+                        </div>
+                        <div class="product-detail">
+                            <h5 class="card-title">Q3 43</h5>
+                            <p class="card-text text-black">徠卡系列首款43mm焦段</p>
+                        </div>
+                        <div class="search-btn d-flex justify-content-center mt-2">
+                            <a href="#">
+                                <img src="/HomePage-images/search-black.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="search-btn2 d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-white.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="card-area bg-white mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2 px-2 py-2 card-img-area">
+                                <span class="badge rounded-pill">Leica 徠卡</span>
+                                <img src="/HomePage-images/camera-Icon.svg" alt="">
+                            </div>
+                            <img src="/HomePage-images/product (1).png" class="card-img-top rounded main-product-img" alt="Leica">
+                        </div>
+                        <div class="product-detail">
+                            <h5 class="card-title">Q3 43</h5>
+                            <p class="card-text text-black">徠卡系列首款43mm焦段</p>
+                        </div>
+                        <div class="search-btn d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-black.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="search-btn2 d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-white.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="card-area bg-white mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2 px-2 py-2 card-img-area">
+                                <span class="badge rounded-pill">Leica 徠卡</span>
+                                <img src="/HomePage-images/camera-Icon.svg" alt="">
+                            </div>
+                            <img src="/HomePage-images/product (1).png" class="card-img-top rounded main-product-img" alt="Leica">
+                        </div>
+                        <div class="product-detail">
+                            <h5 class="card-title">Q3 43</h5>
+                            <p class="card-text text-black">徠卡系列首款43mm焦段</p>
+                        </div>
+                        <div class="search-btn d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-black.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="search-btn2 d-flex justify-content-center mt-3">
+                            <a href="#">
+                                <img src="/HomePage-images/search-white.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- article-card -->
+    <div class="py-5 px-5 article-area">
+        <h2 class="text-center mb-4 text-white ">熱門文章</h2>
+        <div class="row">
+            <!-- card-1 -->
+            <div class="col-md-6 col-lg-6 col-md-12 mb-4">
+                <div class="card d-flex flex-row article-card">
+                    <div class="card-body d-flex flex-column">
+                        <p class="text-bold tag"><span>攝影觀念及技術</span>· 16小時前</p>
+                        <h4 class="card-title">請問2025大家心目中的最佳街拍相機組合為何</h4>
+                        <p class="card-text mt-2">哈哈哈, 2024已經快過去了, 想要請教大家此時此刻, 心目中最佳的2025街拍神器為何?原因是個人以後大概拍最多的會是街拍, 而且以人物比較多, 時常會因旅遊在外逛一天! 最近和攝友討論, 大家都說街拍之王是GRIII. 不過我看了01的介紹後, 發現那完全不是我心中的街拍相機, 雖然很小巧, 但是...</p>
+                        <div class="d-flex mt-auto">
+                            <a href="#" class="">
+                                <img src="/HomePage-images/user (1).jpg" class="object-fit-cover article-user-profile" alt="">
+                            </a>
+                            <a href="#" class="text-decoration-none ms-2 d-flex align-items-center">
+                                <p class="text-muted mb-0 user-name">gashjean3213</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="align-self-center article-card-img">
+                        <a href="#">
+                            <img src="/HomePage-images/social.webp" class="card-img-left mx-4 my-4 rounded" alt="文章圖片" style="max-width: 200px; height: auto; object-fit: cover;"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- card-2 -->
+            <div class="col-md-6 col-lg-6 col-md-12 mb-4">
+                <div class="card d-flex flex-row article-card">
+                    <div class="card-body d-flex flex-column">
+                        <p class="text-bold tag"><span>攝影觀念及技術</span>· 16小時前</p>
+                        <h4 class="card-title">請問2025大家心目中的最佳街拍相機組合為何</h4>
+                        <p class="card-text mt-2">哈哈哈, 2024已經快過去了, 想要請教大家此時此刻, 心目中最佳的2025街拍神器為何?原因是個人以後大概拍最多的會是街拍, 而且以人物比較多, 時常會因旅遊在外逛一天! 最近和攝友討論, 大家都說街拍之王是GRIII. 不過我看了01的介紹後, 發現那完全不是我心中的街拍相機, 雖然很小巧, 但是...</p>
+                        <div class="d-flex mt-auto">
+                            <a href="#" class="">
+                                <img src="/HomePage-images/user (1).jpg" class="object-fit-cover article-user-profile" alt="">
+                            </a>
+                            <a href="#" class="text-decoration-none ms-2 d-flex align-items-center">
+                                <p class="text-muted mb-0 user-name">gashjean3213</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="align-self-center article-card-img">
+                        <a href="#">
+                            <img src="/HomePage-images/social.webp" class="card-img-left mx-4 my-4 rounded" alt="文章圖片" style="max-width: 200px; height: auto; object-fit: cover;"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- card-3 -->
+            <div class="col-md-6 col-lg-6 col-md-12 mb-4">
+                <div class="card d-flex flex-row article-card">
+                    <div class="card-body d-flex flex-column">
+                        <p class="text-bold tag"><span>攝影觀念及技術</span>· 16小時前</p>
+                        <h4 class="card-title">請問2025大家心目中的最佳街拍相機組合為何</h4>
+                        <p class="card-text mt-2">哈哈哈, 2024已經快過去了, 想要請教大家此時此刻, 心目中最佳的2025街拍神器為何?原因是個人以後大概拍最多的會是街拍, 而且以人物比較多, 時常會因旅遊在外逛一天! 最近和攝友討論, 大家都說街拍之王是GRIII. 不過我看了01的介紹後, 發現那完全不是我心中的街拍相機, 雖然很小巧, 但是...</p>
+                        <div class="d-flex mt-auto">
+                            <a href="#" class="">
+                                <img src="/HomePage-images/user (1).jpg" class="object-fit-cover article-user-profile" alt="">
+                            </a>
+                            <a href="#" class="text-decoration-none ms-2 d-flex align-items-center">
+                                <p class="text-muted mb-0 user-name">gashjean3213</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="align-self-center article-card-img">
+                        <a href="#">
+                            <img src="/HomePage-images/social.webp" class="card-img-left mx-4 my-4 rounded" alt="文章圖片" style="max-width: 200px; height: auto; object-fit: cover;"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- card-4 -->
+            <div class="col-md-6 col-lg-6 col-md-12 mb-4">
+                <div class="card d-flex flex-row article-card">
+                    <div class="card-body d-flex flex-column">
+                        <p class="text-bold tag"><span>攝影觀念及技術</span>· 16小時前</p>
+                        <h4 class="card-title">請問2025大家心目中的最佳街拍相機組合為何</h4>
+                        <p class="card-text mt-2">哈哈哈, 2024已經快過去了, 想要請教大家此時此刻, 心目中最佳的2025街拍神器為何?原因是個人以後大概拍最多的會是街拍, 而且以人物比較多, 時常會因旅遊在外逛一天! 最近和攝友討論, 大家都說街拍之王是GRIII. 不過我看了01的介紹後, 發現那完全不是我心中的街拍相機, 雖然很小巧, 但是...</p>
+                        <div class="d-flex mt-auto">
+                            <a href="#" class="">
+                                <img src="/HomePage-images/user (1).jpg" class="object-fit-cover article-user-profile" alt="">
+                            </a>
+                            <a href="#" class="text-decoration-none ms-2 d-flex align-items-center">
+                                <p class="text-muted mb-0 user-name">gashjean3213</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="align-self-center article-card-img">
+                        <a href="#">
+                            <img src="/HomePage-images/social.webp" class="card-img-left mx-4 my-4 rounded" alt="文章圖片" style="max-width: 200px; height: auto; object-fit: cover;"> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center my-5 btn-more">  
+            <button class=" px-4 py-2">查看更多</button>  
+        </div>
+    </div>
+
+    <!-- course-card -->
+    <div class="course-area">
+        <div class="px-5 py-5">
+            <h2 class="course-title text-left mb-4 ps-4">課程推薦</h2>
+            <div class="row d-flex align-items-stretch">
+                <!-- card-1 -->
+                <div class="col-md-4 d-flex">
+                    <div class="course-card ">
+                        <img src="/HomePage-images/course-2.jpg" class="card-img-top course-img" alt="課程圖片1">
+                        <div class="course-card-body mt-3">
+                            <h5 class="course-card-title text-white">相機外閃的神奇攝影術</h5>
+                            <p class="course-card-text text-white">張馬克</p>
+                            <p class="course-rating d-flex align-items-center ">
+                                <img src="/HomePage-images/Star_fill.svg" alt="">
+                                <span class="ps-1 pt-">5.0</span>
+                                <span class="ps-1 text-white">(12)</span>
+                                <span class="ps-1"><img src="/HomePage-images/time.svg" alt=""></span>
+                                <span class="text-white ps-1">3:00</span>
+                            </p>
+                            <p class="course-card-text text-white">NT$1,790</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-2 -->
+                <div class="col-md-4 d-flex">
+                    <div class="course-card ">
+                        <img src="/HomePage-images/course-2.jpg" class="card-img-top course-img" alt="課程圖片2">
+                        <div class="course-card-body mt-3">
+                            <h5 class="course-card-title text-white">相機外閃的神奇攝影術</h5>
+                            <p class="course-card-text text-white">張馬克</p>
+                            <p class="course-rating d-flex align-items-center">
+                                <img src="/HomePage-images/Star_fill.svg" alt="">
+                                <span class="ps-1">5.0</span>
+                                <span class="ps-1 text-white">(12)</span>
+                                <span class="ps-1"><img src="/HomePage-images/time.svg" alt=""></span>
+                                <span class="text-white ps-1">3:00</span>
+                            </p>
+                            <p class="course-card-text text-white">NT$1,790</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card-3 -->
+                <div class="col-md-4 d-flex">
+                    <div class="course-card ">
+                        <img src="/HomePage-images/course-2.jpg" class="card-img-top course-img" alt="課程圖片3">
+                        <div class="course-card-body mt-3">
+                            <h5 class="course-card-title text-white">相機外閃的神奇攝影術</h5>
+                            <p class="course-card-text text-white">張馬克</p>
+                            <p class="course-rating d-flex align-items-center">
+                                <img src="/HomePage-images/Star_fill.svg" alt="">
+                                <span class="ps-1">5.0</span>
+                                <span class="ps-1 text-white">(12)</span>
+                                <span class="ps-1"><img src="/HomePage-images/time.svg" alt=""></span>
+                                <span class="text-white ps-1">3:00</span>
+                            </p>
+                            <p class="course-card-text text-white">NT$1,790</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Us -->
+                <div class="col-md-2">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">關於我們</a></li>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">新聞與公告</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">服務條款</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account Center -->
+                <div class="col-md-3">
+                    <h5>Account Center</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">會員中心</a></li>
+                        <li><a href="#">我的最愛</a></li>
+                        <li><a href="#">訂單資訊查詢</a></li>
+                        <li><a href="#">租賃訂單查詢</a></li>
+                        <li><a href="#">課程查詢</a></li>
+                        <li><a href="#">優惠專區</a></li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="col-md-2">
+                    <h5>FAQ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">購物須知</a></li>
+                        <li><a href="#">產品諮詢</a></li>
+                        <li><a href="#">維修保固</a></li>
+                        <li><a href="#">帳戶問題</a></li>
+                        <li><a href="#">訂單問題</a></li>
+                    </ul>
+                </div>
+
+                <!-- LENSTUDIO -->
+                <div class="col-md-3">
+                    <h5>LENSTUDIO</h5>
+                    <p>桃園市中壢區新生路二段421號</p>
+                    <p>03-3583-2748</p>
+                    <p>客服信箱：LENSTUDIO@gamil.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Open Hours -->
+                <div class="col-md-2">
+                    <h5>OPEN HOURS</h5>
+                    <ul class="list-unstyled">
+                        <li>週二至週五 13:00-18:30</li>
+                        <li>週六及週日 11:00-18:30</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <!-- 左側連結 -->
+                <div class="col-md-6 left-links">
+                    <a href="#">聯絡我們</a>
+                    <span>|</span>
+                    <a href="#">購物說明</a>
+                    <span>|</span>
+                    <a href="#">最新消息</a>
+                </div>
+                <!-- 右側連結 -->
+                <div class="col-md-6 right-links text-end">
+                    <div class="d-inline-block text-nowrap">
+                        <a href="#">網站使用條款</a>
+                        <span>|</span>
+                        <a href="#">隱私權政策</a>
+                        <span>|</span>
+                        <a href="#">免責聲明</a>
+                        <span>|</span>
+                        <span>© Copyright 2024. Lenstudio Co. Ltd. All rights reserved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+
+        /* slider.js 滑動照片*/
+        var splide = new Splide('.splide', {
+            type: 'loop',
+        });
+        var bar = splide.root.querySelector('.my-slider-progress-bar');
+
+        // Updates the bar width whenever the carousel moves:
+        splide.on('mounted move', function () {
+            var end = splide.Components.Controller.getEnd() + 1;
+            var rate = Math.min((splide.index + 1) / end, 1);
+            bar.style.width = String(100 * rate) + '%';
+        });
+
+        splide.mount();
+
+
+        // 初始化第二個 splide
+        var splide2 = new Splide('#splide2', {
+            type: 'loop',
+            padding: '2rem',
+        });
+        var bar2 = splide2.root.querySelector('.my-slider-progress-bar');
+
+        splide2.on('mounted move', function () {
+            var end = splide2.Components.Controller.getEnd() + 1;
+            var rate = Math.min((splide2.index + 1) / end, 1);
+            bar2.style.width = String(100 * rate) + '%';
+
+            // Add classes and filters to previous and next slides
+            var prevIndex = (splide2.index - 1 + splide2.length) % splide2.length;
+            var nextIndex = (splide2.index + 1) % splide2.length;
+        });
+
+        splide2.mount();
+
+    </script>
+</body>
+</html>

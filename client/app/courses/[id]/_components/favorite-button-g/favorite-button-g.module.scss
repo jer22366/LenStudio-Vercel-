@@ -1,0 +1,21 @@
+// 愛心是引用info的scss
+
+.favorite-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color-med);
+  background-color: var(--primary-color);
+  color: var(--secondary-color-med);
+  padding: 8px 25px;
+}
+
+.favorite-btn:hover {
+  box-shadow: 0 0 8px var(--secondary-color-lig);
+}
+
+.favorite-btn p {
+  color: var(--secondary-color-med);
+  font-weight: 600;
+}

@@ -1,0 +1,395 @@
+.section-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 4rem 0 1rem 0;
+}
+
+.title-block {
+  width: 8px;
+  height: 35px;
+  background-color: var(--primary-color);
+}
+
+.section-detail-title h2 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.teacher-info {
+  display: flex;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  background-color: var(--white);
+  border-radius: 10px;
+  max-height: 290px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.teacher-info-img {
+  flex: 1;
+  max-width: 33.33%;
+  overflow: hidden;
+}
+.teacher-info-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacher-info-text {
+  flex: 2;
+  max-width: 500px;
+  margin: 2rem 2rem 2rem 0;
+}
+
+.teacher-info-text > .line {
+  border-bottom: 1px solid var(--line-color-gray-light2);
+}
+
+.teacher-info-text > p {
+  display: -webkit-box; /* 必需：啟用彈性盒子模型 */
+  -webkit-box-orient: vertical; /* 必需：設定為垂直方向 */
+  overflow: hidden; /* 隱藏超出內容 */
+  -webkit-line-clamp: 3; /* 限制行數為 3 行 */
+  text-overflow: ellipsis; /* 顯示省略號 */
+}
+
+.teacher-data li img {
+  width: 17px;
+  height: 17px;
+}
+
+.teacher-info-text h3 {
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.teacher-data {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  p {
+    color: var(--black);
+  }
+}
+
+.link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.go-page-link {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: end;
+}
+
+.open-modal-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--line-color-gray);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.line {
+  border: 1px solid var(--line-color-gray-light2);
+  margin: 1rem 0;
+}
+
+// --彈出視窗---
+/* 背景遮罩 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+/* 彈出視窗內容 */
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 1200px;
+  height: 80vh;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; // ✅ 防止整個模態框滾動
+  pointer-events: auto;
+}
+
+/* 關閉按鈕 */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: space-between;
+  flex: 1; // ✅ 讓 `modal-body` 填滿 `.modal-content`
+  overflow: hidden; // ✅ 防止 `.modal-body` 本身捲動
+}
+
+// 左側樣式：頭像 & 社群連結
+.modal-left-container {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  padding: 3rem 0;
+  flex: 1;
+  background-color: var(--primary-color);
+}
+
+.modal-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .modal-left-img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .teacher-name {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-links {
+    margin: 2rem;
+    display: flex;
+    gap: 8px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--secondary-color-med);
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+
+      &:hover {
+        background-color: var(--secondary-color-med);
+        transform: scale(1.1);
+      }
+    }
+  }
+  hr {
+    width: 70%;
+    border: 1px solid var(--line-color-gray-light);
+  }
+}
+
+.modal-teacher-data {
+  margin-top: 3rem;
+  .data-item {
+    margin: 1rem 0 10px 3rem;
+    img {
+      width: 18px;
+      height: 18px;
+    }
+    p {
+      color: var(--line-color-gray-light);
+    }
+  }
+}
+
+.hr-line {
+  margin: 2rem 0;
+}
+
+// 右側樣式：簡介 & 課程
+.modal-right {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 800px;
+  padding: 3rem 3rem 3rem 2rem;
+  flex: 2;
+  text-align: left;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+
+    .course-item {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+
+      .course-img {
+        width: 100%;
+        max-height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modal-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1200px) {
+  .modal-content {
+    width: 85%;
+    max-width: 1000px;
+  }
+  .modal-teacher-data {
+    margin-top: 3rem;
+    .data-item {
+      margin: 1rem 0 10px 2rem;
+      img {
+        width: 18px;
+        height: 18px;
+      }
+      p {
+        color: var(--line-color-gray-light);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* -- 關於講師 -- */
+  .teacher-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 700px;
+  }
+
+  .teacher-info-img {
+    max-width: 100%; /* 讓圖片寬度佔滿 */
+  }
+
+  .teacher-info-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .teacher-info-text {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .modal-body {
+    padding-top: 0 !important;
+  }
+  .title-block {
+    display: none;
+  }
+
+  .teacher-info {
+    width: 100%;
+    display: block;
+    max-height: 800px;
+  }
+
+  .teacher-info-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .teacher-info-text h3 {
+    margin-bottom: 1rem;
+  }
+
+  .teacher-data {
+    display: block;
+  }
+
+  .data-item {
+    margin: 0.5rem 0;
+  }
+}

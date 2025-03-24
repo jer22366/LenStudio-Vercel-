@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>映相坊</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      header {
+        height: 80px;
+        background-color: #143146;
+        color: white;
+        display: flex;
+        align-items: center;
+      }
+      .header-logo {
+        margin-left: 5%;
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      /* nav-link */
+      .navbar-nav a:focus {
+        color: #f1cf99;
+        border-bottom: solid 0.5px #f1cf99;
+      }
+      .navbar-nav a {
+        color: white;
+        margin: 0 10px;
+        position: relative;
+        transition: color 0.3s;
+      }
+      .navbar-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0;
+        height: 0.5px;
+        background-color: #f1cf99;
+        transition: width 0.3s;
+      }
+      .navbar-nav a:hover {
+        color: #f1cf99;
+      }
+      .navbar-nav a:hover::after {
+        width: 100%;
+      }
+
+      /* header-icons */
+      .header-icons {
+        display: flex;
+        align-items: center;
+        margin-right: 5%;
+        a {
+          margin-left: 15px;
+        }
+      }
+
+      /* ----------------- */
+
+      /* News-slider */
+      .my-slider-progress {
+        background: #ccc;
+      }
+
+      .my-slider-progress-bar {
+        background: #7e7267;
+        height: 2px;
+        transition: width 400ms ease;
+        width: 0;
+      }
+
+      .splide__slide {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .splide__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .text-DM {
+        background: linear-gradient(to top, #000000a9, #ffffff00);
+        width: 100%;
+        height: 25%;
+        position: absolute;
+        bottom: 0;
+        padding: 3% 5% 5% 5%;
+        font-family: "Noto Sans HK", serif;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .text-DM h1 {
+          font-size: 1.5rem;
+        }
+        .text-DM h3 {
+          font-size: 1.2rem;
+        }
+      }
+
+      .btn-sale {
+        padding: 5px 20px;
+        border-radius: 25px;
+        background-color: #e58e41;
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .btn-sale:hover {
+        background-color: #d17b2f;
+      }
+
+      /* News-card */
+      .News-card {
+        background-color: #23425a;
+      }
+
+      .News-card-content {
+        border-radius: 15px;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .News-card-content:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-news-img {
+        overflow: hidden;
+      }
+
+      .card-news-img img {
+        border-radius: 15px 0 0 15px;
+        transition: transform 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .card-news-img img {
+          border-radius: 15px 15px 0 0;
+        }
+      }
+
+      .News-card-content:hover .card-news-img img {
+        transform: scale(1.05);
+      }
+
+      .tag-product span {
+        background-color: #807871;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .undertext {
+        margin: 0 10px;
+      }
+
+      .undertext p {
+        color: #1e3c54;
+        margin-bottom: 0;
+      }
+
+      .undertext a {
+        color: #807871;
+      }
+
+      /* Product-card */
+      .product-area {
+        background-color: #143146;
+      }
+
+      .product-card {
+        background-color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: scale(1.05);
+        background-color: #d0b088;
+      }
+
+      .card-area {
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .card-img-area span {
+        color: #807871;
+        border: solid 1px #807871;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+      }
+
+      .card-img-area span:hover {
+        background: #807871;
+        color: white;
+      }
+
+      /* Article-card */
+      .article-area {
+        background-color: #23425a;
+      }
+
+      .article-card {
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .article-card:hover {
+        background-color: #7e7267;
+        transform: translateY(-5px);
+      }
+
+      .article-card:hover p,
+      .article-card:hover h4,
+      .article-card:hover .user-name {
+        color: white !important;
+      }
+
+      .article-user-profile {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+
+      /* Course-card */
+      .course-area {
+        background-color: #143146;
+        color: white;
+      }
+
+      .course-title {
+        border-left: solid 7px #f9a11b;
+        padding-left: 15px;
+      }
+
+      .course-card {
+        background-color: transparent;
+        border: none;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .course-img {
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .course-card:hover .course-img {
+        transform: scale(1.03);
+      }
+
+      /* Button styles */
+      .btn-more button {
+        background-color: #e58e41;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 8px 30px;
+        font-family: "Noto Sans HK", serif;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-more button:hover {
+        background-color: #d17b2f;
+        transform: translateY(-2px);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .card-body {
+          padding: 1rem;
+        }
+
+        .article-card-img img {
+          max-width: 150px;
+        }
+
+        .course-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .article-card {
+          flex-direction: column !important;
+        }
+
+        .article-card-img img {
+          max-width: 100%;
+          margin: 1rem 0 !important;
+        }
+
+        .card-news-img {
+          width: 100% !important;
+        }
+      }
+
+      /* ----- */
+
+      /* footer */
+      .footer {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans HK", sans-serif;
+        background-color: #8c8279;
+        color: white;
+        padding: 40px 0;
+      }
+      .footer h5 {
+        color: rgb(255, 255, 255);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .footer a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+      .footer .social-icons a {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: white;
+      }
+      .footer .social-icons a:hover {
+        color: #143146;
+      }
+
+      /* copyright */
+      .copyright {
+        background-color: #1b3b4f; /* 深藍色背景 */
+        color: #ffffff; /* 白色文字 */
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+      .copyright a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .copyright a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="d-flex justify-content-between w-100">
+        <div class="header-logo">
+          <a class="navbar-brand text-white" href="#">
+            <img src="/HomePage-images/camera_logo_ol-02.svg" alt="" />
+          </a>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">產品系列</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">租借服務</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">影像學院</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">影像誌</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡我們</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header-icons">
+          <a href="">
+            <img src="/HomePage-images/search.svg" alt="" />
+          </a>
+          <a href="">
+            <img src="/HomePage-images/user.svg" alt="" />
+          </a>
+          <a href="">
+            <img src="/HomePage-images/bag.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- News-slider -->
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div class="text-DM">
+              <h3>新發售</h3>
+              <h1 class="ms-md-5 mt-2">Leica Q3 43</h1>
+              <button class="btn-sale mt-2">
+                <a class="text-decoration-none text-white" href="">探索詳情</a>
+              </button>
+            </div>
+            <img src="/HomePage-images/SC1.jpg" alt="Leica Q3 43" />
+          </li>
+          <!-- 其他輪播項目 -->
+        </ul>
+      </div>
+      <div class="my-slider-progress">
+        <div class="my-slider-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- News-card -->
+    <div class="News-card py-4 py-md-5 px-3 px-md-5">
+      <h2 class="text-white text-center mb-4 mb-md-5">最新消息</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100 flex-column flex-md-row News-card-content">
+            <div class="col-12 col-md-4 card-news-img">
+              <img
+                src="/HomePage-images/news (1).jpg"
+                class="img-fluid h-100 w-100"
+                alt="News Image"
+              />
+            </div>
+            <div
+              class="col-12 col-md-8 d-flex flex-column justify-content-between p-3"
+            >
+              <div class="tag-product">
+                <span>產品情報</span>
+              </div>
+              <div>
+                <h4 class="card-title mt-2 mb-3 mb-md-5">
+                  Sony α1 II 當代全能旗艦相機重磅登場
+                </h4>
+              </div>
+              <div class="d-flex justify-content-between undertext">
+                <p>2024.11.20</p>
+                <a href="#" class="text-decoration-none">More →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 重複新聞卡片 -->
+      </div>
+      <div class="text-center mt-4 mt-md-5 btn-more">
+        <button>查看更多</button>
+      </div>
+    </div>
+
+    <!-- Product-card -->
+    <div class="product-area py-4 py-md-5">
+      <div class="container">
+        <h2 class="text-white text-center mb-4 mb-md-5">產品推薦</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="product-card">
+              <div class="card-body">
+                <div class="card-area bg-white mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2 card-img-area"
+                  >
+                    <span class="badge rounded-pill">Leica 徠卡</span>
+                    <img
+                      src="/HomePage-images/camera-Icon.svg"
+                      alt="Camera Icon"
+                    />
+                  </div>
+                  <img
+                    src="/HomePage-images/product (1).png"
+                    class="img-fluid"
+                    alt="Product Image"
+                  />
+                </div>
+                <div class="product-detail">
+                  <h5 class="card-title">Q3 43</h5>
+                  <p class="card-text text-black">徠卡系列首款43mm焦段</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 重複產品卡片 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Article-card -->
+    <div class="article-area py-4 py-md-5 px-3 px-md-5">
+      <h2 class="text-white text-center mb-4 mb-md-5">熱門文章</h2>
+      <div class="row row-cols-1 row-cols-lg-2 g-4">
+        <div class="col">
+          <div class="card d-flex flex-row article-card">
+            <div class="card-body">
+              <p class="tag"><span>攝影觀念及技術</span> · 16小時前</p>
+              <h4 class="card-title">
+                請問2025大家心目中的最佳街拍相機組合為何
+              </h4>
+              <p class="card-text mt-2 d-none d-md-block">
+                哈哈哈, 2024已經快過去了...
+              </p>
+              <div class="d-flex align-items-center mt-3">
+                <img
+                  src="/HomePage-images/user (1).jpg"
+                  class="article-user-profile"
+                  alt="User Profile"
+                />
+                <p class="ms-2 mb-0 user-name">gashjean3213</p>
+              </div>
+            </div>
+            <div class="article-card-img p-3">
+              <img
+                src="/HomePage-images/social.webp"
+                class="img-fluid rounded"
+                alt="Article Image"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- 重複文章卡片 -->
+      </div>
+      <div class="text-center mt-4 mt-md-5 btn-more">
+        <button>查看更多</button>
+      </div>
+    </div>
+
+    <!-- Course-card -->
+    <div class="course-area">
+      <div class="container py-4 py-md-5">
+        <h2 class="course-title mb-4">課程推薦</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <div class="course-card">
+              <img
+                src="/HomePage-images/course-2.jpg"
+                class="course-img"
+                alt="Course Image"
+              />
+              <div class="course-card-body mt-3">
+                <h5 class="course-card-title">相機外閃的神奇攝影術</h5>
+                <p class="course-card-text">張馬克</p>
+                <div class="d-flex align-items-center">
+                  <img src="/HomePage-images/Star_fill.svg" alt="Star" />
+                  <span class="ms-2">5.0</span>
+                  <span class="ms-2">(12)</span>
+                  <img
+                    src="/HomePage-images/time.svg"
+                    class="ms-3"
+                    alt="Time"
+                  />
+                  <span class="ms-2">3:00</span>
+                </div>
+                <p class="course-card-text mt-2">NT$1,790</p>
+              </div>
+            </div>
+          </div>
+          <!-- 重複課程卡片 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Event-area -->
+    <div class="event-area">
+      <div id="splide2" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="text-DM d-flex align-items-end">
+                <a href="" class="text-decoration-none text-white fs-4"
+                  >更多活動 ⇀</a
+                >
+              </div>
+              <img
+                src="/HomePage-images/hill-brothers_header_image.jpg.webp"
+                alt="Event Image"
+              />
+            </li>
+            <!-- 重複活動輪播項目 -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- About Us -->
+          <div class="col-md-2">
+            <h5>About Us</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">關於我們</a></li>
+              <li><a href="#">品牌故事</a></li>
+              <li><a href="#">新聞與公告</a></li>
+              <li><a href="#">媒體報導</a></li>
+              <li><a href="#">服務條款</a></li>
+            </ul>
+          </div>
+
+          <!-- Account Center -->
+          <div class="col-md-3">
+            <h5>Account Center</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">會員中心</a></li>
+              <li><a href="#">我的最愛</a></li>
+              <li><a href="#">訂單資訊查詢</a></li>
+              <li><a href="#">租賃訂單查詢</a></li>
+              <li><a href="#">課程查詢</a></li>
+              <li><a href="#">優惠專區</a></li>
+            </ul>
+          </div>
+
+          <!-- FAQ -->
+          <div class="col-md-2">
+            <h5>FAQ</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">購物須知</a></li>
+              <li><a href="#">產品諮詢</a></li>
+              <li><a href="#">維修保固</a></li>
+              <li><a href="#">帳戶問題</a></li>
+              <li><a href="#">訂單問題</a></li>
+            </ul>
+          </div>
+
+          <!-- LENSTUDIO -->
+          <div class="col-md-3">
+            <h5>LENSTUDIO</h5>
+            <p>桃園市中壢區新生路二段421號</p>
+            <p>03-3583-2748</p>
+            <p>客服信箱：LENSTUDIO@gamil.com</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-line"></i></a>
+            </div>
+          </div>
+
+          <!-- Open Hours -->
+          <div class="col-md-2">
+            <h5>OPEN HOURS</h5>
+            <ul class="list-unstyled">
+              <li>週二至週五 13:00-18:30</li>
+              <li>週六及週日 11:00-18:30</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <!-- 左側連結 -->
+          <div class="col-md-6 left-links">
+            <a href="#">聯絡我們</a>
+            <span>|</span>
+            <a href="#">購物說明</a>
+            <span>|</span>
+            <a href="#">最新消息</a>
+          </div>
+          <!-- 右側連結 -->
+          <div class="col-md-6 right-links text-end">
+            <div class="d-inline-block text-nowrap">
+              <a href="#">網站使用條款</a>
+              <span>|</span>
+              <a href="#">隱私權政策</a>
+              <span>|</span>
+              <a href="#">免責聲明</a>
+              <span>|</span>
+              <span
+                >© Copyright 2024. Lenstudio Co. Ltd. All rights reserved</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

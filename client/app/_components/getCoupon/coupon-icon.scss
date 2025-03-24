@@ -1,0 +1,56 @@
+.coupon-button {
+  width: 55px; // 設定寬度
+  height: 55px; // 設定高度
+  border-radius: 50%; // 設定圓形
+  background-color: #ff6347; // 設定背景顏色
+  color: white; // 設定文字顏色（如有需要）
+  border: none; // 去除邊框
+  position: fixed; // 固定定位
+  bottom: 145px; // 距離底部20px
+  right: 30px; // 距離右側20px
+  z-index: 1000; // 確保按鈕在其他元素之上
+  display: flex; // 使用flexbox來水平與垂直居中
+  align-items: center; // 垂直居中
+  justify-content: center; // 水平居中
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // 增加陰影效果
+  cursor: pointer; // 設定滑鼠指標為點擊樣式
+
+  &:hover {
+    background-color: #ff4500; // 滑鼠懸停時的背景顏色
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); // 懸停時增強陰影效果
+    transform: scale(1.05); // 懸停時稍微放大
+  }
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease; // 平滑過渡效果
+}
+
+.body.swal2-shown {
+  padding: 0 !important;
+}
+.body.swal2-shown {
+  overflow: visible !important; /* 禁止滾動 */
+}
+
+// 請在檔案末尾添加以下媒體查詢
+@media (max-width: 768px) {
+  .coupon-button {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    min-height: 45px !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed !important; // 確保定位
+    bottom: 130px !important; // 放在聊天按鈕上方 (75px + 45px + 10px)
+    right: 20px !important;
+    z-index: 999 !important; // 確保適當的層疊順序
+
+    svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}

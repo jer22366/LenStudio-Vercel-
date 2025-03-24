@@ -1,0 +1,170 @@
+// ::-webkit-scrollbar {
+//   width: 2px;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background-color: #7e726700;
+// }
+
+/* 卡片容器樣式 */
+.article-list-card-area {
+  max-width: 700px;
+}
+
+/* 卡片圖片樣式 */
+.article-card-1-image img {
+  max-width: 300px;
+  max-height: 450px;
+  aspect-ratio: 3/4.5;
+  object-fit: cover;
+}
+
+.article-card-2-image img {
+  max-width: 300px;
+  max-height: 300px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* 內容區域樣式 */
+.article-card-content {
+  max-width: 300px;
+  padding-right: 5px;
+}
+
+/* 卡片標題連結樣式 */
+.article-card-title a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.article-card-category a {
+  text-decoration: none;
+  color: #7e7267;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.author-date-1 {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.author-date-2 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 等比例縮放媒體查詢 - 1375px及以下 */
+@media screen and (max-width: 1375px) {
+  /* 調整卡片容器尺寸 */
+  .article-list-card-area {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+  }
+
+  /* 第一種卡片圖片縮放 */
+  .article-card-1-image img {
+    max-width: 200px;
+    width: 300px;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 3/4.5;
+  }
+
+  /* 第二種卡片圖片縮放 */
+  .article-card-2-image img {
+    max-width: 200px;
+    width: 200px;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1/1;
+  }
+
+  /* 內容區域縮放 */
+  .article-card-content {
+    max-width: 200px;
+  }
+
+  /* 調整文字大小 */
+  .article-card-title {
+    font-size: 0.95rem;
+  }
+
+  .article-card-category a {
+    font-size: 0.85rem;
+  }
+
+  .author-date-1,
+  .author-date-2 {
+    font-size: 0.85rem;
+  }
+
+  /* 確保卡片容器適應變化 */
+  .card {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .article-list-card-area {
+    max-width: 700px;
+    width: 100%;
+    
+    /* 修改為space-between分布 */
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  
+  /* 取消左右欄位的外邊距 */
+  // :global(.left.me-4) {
+  //   margin-right: 0 !important;
+  //   width: 48%;
+  // }
+  
+  // :global(.right.ms-4) {
+  //   margin-left: 0 !important;
+  //   width: 48%;
+  // }
+  
+  .article-card-1-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 3/4.5;
+  }
+
+  /* 第二種卡片圖片縮放 */
+  .article-card-2-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1/1;
+  }
+  
+  /* 內容區域樣式 */
+  .article-card-content {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .container{
+    margin-top: 50px;
+  }
+}
+
+
+/* 進一步壓縮在更小尺寸 */
+@media screen and (max-width: 768px) {
+
+}

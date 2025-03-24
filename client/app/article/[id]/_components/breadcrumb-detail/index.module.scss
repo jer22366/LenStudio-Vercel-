@@ -1,0 +1,108 @@
+.y-breadcrumb{
+  a{
+    color: #8F8F8F;
+  }
+  span{
+    color:#8F8F8F;
+  }
+  p{
+    color: #143146;
+  }
+  margin-top: 70px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 990px){
+  .y-breadcrumb{
+  margin-top: 20px;
+  font-size: 12px;
+  }
+}
+
+/* 響應式文字大小設定 */
+
+/* 輸入框文字和Placeholder文字大小調整 */
+.y-comment-area {
+  input {
+    font-size: 16px; /* 默認文字大小 */
+
+    &::placeholder {
+      font-size: 16px; /* 默認placeholder大小 */
+    }
+  }
+}
+
+/* 媒體查詢 - 根據不同螢幕大小調整文字大小 */
+@media (max-width: 1200px) {
+  .y-comment-area {
+    input {
+      font-size: 15px;
+      
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .y-comment-area {
+    input {
+      font-size: 14px;
+      
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .y-comment-area {
+    input {
+      font-size: 14px;
+      
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .y-comment-area {
+    input {
+      font-size: 13px;
+      
+      &::placeholder {
+        font-size: 13px;
+      }
+    }
+    
+    /* 按鈕間距調整 */
+    .y-comment-area-icons {
+      gap: 2px;
+      
+      button {
+        padding: 3px;
+        
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .y-comment-area {
+    input {
+      font-size: 12px;
+      
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}

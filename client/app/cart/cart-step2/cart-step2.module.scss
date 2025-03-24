@@ -1,0 +1,60 @@
+.j-page-wrapper{
+  min-height: 93vh;
+}
+
+
+.j-cartTitle{
+  background-color: #003150;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+}
+.j-input-box{
+  background-color: #fff;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.j-nextBox{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.j-itemBox{
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.j-heightspace{
+  padding: 3.0rem;
+}
+
+
+@media(max-width:390px) {
+  .j-cartTitle{
+    background-color: #003150;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #fff;
+  }
+  
+    .j-itemBox{
+      background-color: #003150;
+      border-radius: 20px;
+      color: #fff;
+    }
+
+    .j-cartItemBox {
+      width: 390px;
+      height: auto;
+    }
+
+    .j-lessonImg img {
+      width: 375px;
+    }
+    
+    .footer {
+      display: block;
+    }
+  }

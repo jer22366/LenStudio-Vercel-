@@ -1,0 +1,58 @@
+
+.j-shoppingCartTitleBox .j-shoppingCartTitle {
+    font-size: 2.1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .j-small {
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: normal;
+  }
+  @media(min-width:1920px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 9rem;
+    }
+  }
+  @media(max-width:1920px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 9rem;
+    }
+  }
+  @media(max-width:1400px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 8rem;
+    }
+  }
+
+  @media(max-width:1200px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 4rem;
+    }
+  }
+  @media(max-width:996px) {
+    
+    .j-shoppingCartTitleBox{
+      margin-left: 0;
+    }
+  }
+
+  @media(max-width:576px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 0;
+    }
+  }
+
+  @media(max-width:390px) {
+    .j-shoppingCartTitleBox{
+      margin-left: 0;
+    }
+    .j-shoppingCartTitleBox .j-shoppingCartTitle {
+      font-size: 2.1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }

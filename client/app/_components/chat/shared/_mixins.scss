@@ -1,0 +1,70 @@
+@import './_variables';
+
+// 訊息氣泡基本樣式
+@mixin message-bubble {
+  max-width: 80%;
+  padding: $spacing-sm $spacing-md;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  word-break: break-word;
+}
+
+// 用户消息氣泡
+@mixin user-bubble {
+  background: $secondary-color;
+  color: white;
+  align-self: flex-end;
+}
+
+// 客服/管理员消息氣泡
+@mixin agent-bubble {
+  background: #969696;
+  color: #ffffff;
+  align-self: flex-start;
+}
+
+// 按鈕基本樣式
+@mixin icon-button {
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 $spacing-sm;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}
+
+// 頭像樣式
+@mixin avatar-style {
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// 在線指示器
+@mixin online-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #44bd32;
+  border: 2px solid white;
+}

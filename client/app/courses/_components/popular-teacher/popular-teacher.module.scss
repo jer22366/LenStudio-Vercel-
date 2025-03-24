@@ -1,0 +1,146 @@
+/* ---popular-teacher--- */
+
+.popular-teacher {
+  background-color: var(--primary-color);
+  overflow: hidden; /* 解決margin塌陷 */
+}
+
+.teacher-title {
+  display: flex;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.teacher-title h2 {
+  color: var(--white);
+}
+
+.title-block {
+  width: 8px;
+  background-color: var(--warning-color);
+}
+
+.teacher-card {
+  margin-bottom: 80px;
+}
+
+.teacher-card-img {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.teacher-card-img img {
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.teacher-card-img:hover img {
+  transform: scale(1.1);
+}
+
+.teacher-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0) 35%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.teacher-card-img h3 {
+  position: absolute;
+  bottom: 90px;
+  margin: 30px;
+  color: var(--white);
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.teacher-card-img p {
+  position: absolute;
+  margin: 0 30px;
+  bottom: 30px;
+  color: var(--white);
+  font-size: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  display: -webkit-box; /* 必需：啟用彈性盒子模型 */
+  -webkit-box-orient: vertical; /* 必需：設定為垂直方向 */
+  overflow: hidden; /* 隱藏超出內容 */
+  -webkit-line-clamp: 3; /* 限制行數為 3 行 */
+  text-overflow: ellipsis; /* 顯示省略號 */
+}
+
+.teacher-card:hover .arrow-more {
+  opacity: 1;
+}
+
+.arrow-more {
+  position: absolute;
+  opacity: 0;
+  top: 20px;
+  right: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.circle-more {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+/* 響應式樣式 */
+@media screen and (max-width: 768px) {
+
+  .teacher-title {
+    margin-top: 2rem;
+  }
+  .teacher-title h2 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  .popular-teacher > .container {
+    padding: 0 !important;
+  }
+
+  .teacher-title {
+    padding-left: 32px;
+  }
+
+  .teacher-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory; /* 讓滾動有吸附效果 */
+    justify-content: flex-start; /* 確保內容從最左邊開始 */
+  }
+  .teacher-list {
+    flex: 0 0 80vw; /* 每個卡片佔 80% 視窗寬度 */
+    max-width: 80vw; /* 讓卡片最大寬度為 80% 視窗寬度 */
+    margin-left: 16px;
+  }
+  .teacher-card {
+    margin-bottom: 3rem;
+  }
+}

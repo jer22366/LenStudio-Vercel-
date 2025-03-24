@@ -1,0 +1,68 @@
+// 背景顏色
+.body {
+  background-color: #f5f5f5;
+}
+.h1{
+  font-size: 2rem;
+}
+.marginTop {
+  margin-top: 100px;
+}
+// 側邊選單
+.sidenav {
+  padding: 20px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+
+    &:hover {
+      color: #5292c5;
+    }
+  }
+}
+
+// 垂直線 (大螢幕顯示)
+
+// 優惠券卡片
+.couponCard {
+  position: relative;
+  width: 400px;
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// 優惠券日期文字
+.couponDate {
+  font-size: 16px;
+  position: absolute;
+  left: 52px;
+  bottom: -5px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 10px;
+}
+
+// 響應式設計
+.JcpEndDate {
+  bottom: 12%;
+  left: 61%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  white-space: nowrap;
+}

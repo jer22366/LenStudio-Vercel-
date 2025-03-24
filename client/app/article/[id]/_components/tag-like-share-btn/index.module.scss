@@ -1,0 +1,71 @@
+.y-tag-area button{
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .y-tag-area button:hover{
+    background-color: #d9d9d9;
+    color: #000;
+  }
+
+  .y-like-comment-share-fav button{
+    background-color: #ffffff00;
+    border: none;
+  }
+  .y-like-comment-share-fav-mb{
+    display: none;
+  }
+  .y-count-num-pc{
+    color: #1E3C54;
+  }
+  .y-count-num{
+    display: none;
+  }
+
+  .favorite-btn {
+    display: flex;
+    align-items: center;
+    // gap: 6px;
+    // border-radius: 5px;
+    // border: 1px solid var(--secondary-color-med);
+    background-color: var(--primary-color);
+    color: var(--secondary-color-med);
+    // padding: 8px 25px;
+    cursor: pointer;
+  }
+  
+  .favorite-icon {
+    color: var(--secondary-color-med);
+  }
+
+@media screen and (max-width: 390px){
+    .y-tag-like-comment-share-fav-area{
+      display: block !important;
+    }
+    .y-tag-area{
+      margin-bottom: 15px;
+      button{
+        font-size: 12px;
+        padding: 0.2rem 0.5rem;
+        width: auto !important;
+        border: 1px solid #000;
+      }
+    }
+    .y-count-num{
+      font-size: 12px;
+    }
+    .y-like-comment-share-fav{
+      justify-content: space-between;
+    }
+    .y-like-comment-share-fav-pc{
+      display: none;
+    }
+    .y-count-num-pc{
+      display: none;
+    }
+    .y-like-comment-share-fav-mb{
+      display: block;
+    }
+    .y-count-num-mb{
+      display: block;
+    }
+}

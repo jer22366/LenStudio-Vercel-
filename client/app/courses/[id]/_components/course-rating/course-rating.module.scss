@@ -1,0 +1,201 @@
+.section-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 4rem 0 1rem 0;
+}
+
+.title-block {
+  width: 8px;
+  height: 35px;
+  background-color: var(--primary-color);
+}
+
+.section-detail-title h2 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.course-rating {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.score-area,
+.star-area {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-left: 1.5rem;
+}
+
+.score-area .score {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.score-area .total-score {
+  color: var(--line-color-gray);
+}
+
+.rating-count {
+  color: var(--line-color-gray);
+  margin-left: 1rem;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.count {
+  color: var(--line-color-gray);
+  width: 20px; /* 設定固定寬度 */
+  text-align: center; /* 讓數字靠右對齊 */
+  display: inline-block; /* 確保寬度有效 */
+}
+
+.progress {
+  width: 350px;
+  --bs-progress-height: 0.5rem;
+  background-color: var(--gray--50);
+  flex-grow: 1; /* 讓 progress 填滿剩餘空間 */
+  max-width: 400px; /* 限制最大寬度 */
+}
+
+.progress-bar {
+  background-color: var(--warning-color) !important;
+}
+
+.all-comment-link a {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.all-comment-link button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 彈出視窗 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.modal-content {
+  position: relative;
+  max-height: 70vh; 
+  overflow-y: auto; 
+  padding-right: 10px; 
+  scroll-behavior: smooth; 
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.custom-progress {
+  background-color: var(--gray--100) !important;
+}
+
+/* 響應式樣式 */
+
+@media screen and (max-width: 768px) {
+  /*--- 評價 --- */
+  .course-rating {
+    display: block;
+  }
+
+  .rating-right {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .progress {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .title-block {
+    display: none;
+  }
+
+  /* --- 評價 --- */
+  .section-detail-title {
+    margin-top: 2rem;
+  }
+
+  .go-page-link {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .total-score {
+    display: none;
+  }
+  .score-area {
+    margin-left: 0;
+  }
+
+  .score-area .score {
+    font-size: 1.2rem;
+  }
+
+  .rating-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .star-area {
+    margin-left: 8px;
+  }
+
+  .all-comment-link {
+    margin: 0.5rem;
+  }
+}

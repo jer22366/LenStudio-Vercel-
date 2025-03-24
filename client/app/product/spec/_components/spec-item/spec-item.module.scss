@@ -1,0 +1,140 @@
+.compareTitle {
+  text-align: center;
+  font-weight: bold;
+  margin-left: 130px;
+}
+.productSelect {
+  width: 150px;
+  height: 30px;
+  font-size: 14px;
+  text-align-last: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.imageTop {
+  width: 230px;
+  height: 170px;
+  overflow: hidden;
+}
+
+.price {
+  padding-top: 10px;
+  color: #e58e41 !important;
+  font-weight: bold;
+}
+
+.productContainer {
+  display: flex;
+  max-width: 1440px;
+  justify-content: flex-end;
+    // border: 1px solid red;
+
+  .productBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    // border: 1px solid rgb(14, 16, 121);
+
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+    }
+    
+    h5 {
+      font-weight: bold;
+      color: #062f4f;
+    }
+
+    p {
+      color: #d0b189;
+    }
+
+    .remove {
+      color: black;
+      font-weight: bold;
+      padding-top: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: darkred !important;
+      }
+    }
+  }
+
+  .emptyBox {
+    border: 2px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 1.2rem;
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 391px) {
+  .imageTop {
+    width: 120px;
+    height: 100px;
+    overflow: hidden;
+  }
+  .productContainer {
+    width: 370px;
+    // border: 1px solid red;
+
+    .productBox {
+      // border: 1px solid red;
+      text-align: center;
+      width: 30%;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 85%;
+      }
+
+      h5 {
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+      }
+
+      .remove {
+        width: 50px;
+        color: black;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+    }
+
+    .emptyBox {
+      height: 200px;
+      width: 95px;
+    }
+  }
+
+  .compareTitle {
+    display: block !important;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 70px;
+  margin-left: 10px;
+  }
+
+  .productSelect {
+    width: 80px;
+    font-size: 12px;
+  }
+}

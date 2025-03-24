@@ -1,0 +1,365 @@
+.homeArticleContainer {
+  // max-width: 1600px;
+  width: 95%;
+  margin: 50px auto;
+  margin-bottom: 100px;
+}
+
+// 修改標題區域樣式，添加動畫效果
+.homeArticleTitle {
+  position: relative;
+  padding: 0 20px;
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-between; // 新增：兩邊分散
+  align-items: center;
+  height: 50px;
+  overflow: visible; // 修改這裡讓子元素的 hover 模糊效果不被裁切
+
+  h2 {
+    margin: 0;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateX(-20px); // 初始位置向左偏移
+    animation: textSlide 0.6s ease 0.7s forwards; // 在邊線動畫完成後開始
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 8px;
+    background-color: #ffa510;
+    height: 0; // 初始高度為0
+    animation: borderUp 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+}
+
+// 邊線向上生長動畫
+@keyframes borderUp {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+// 文字滑入動畫
+@keyframes textSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.homeArticle {
+  display: flex;
+  justify-content: center;
+}
+
+.articleHomeContainer {
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.homepageArticleArea {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.homeArticleBigCard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    border-radius: 25px;
+
+    &::after {
+      transform: scale(1.05);
+    }
+  }
+
+  /* 背景圖層 */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: transform 0.3s ease;
+    background-image: inherit;
+  }
+
+  /* 漸層覆蓋層 */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 1;
+  }
+
+  clip-path: inset(0 0 100% 0);
+}
+
+.homeArticleSmallCard {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  aspect-ratio: 4/3;
+  gap: 10px;
+}
+
+.smallImgContainer {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    border-radius: 25px;
+
+    &::after {
+      transform: scale(1.05);
+    }
+  }
+
+  /* 背景圖層 */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: transform 0.3s ease;
+    background-image: inherit;
+  }
+
+  /* 小圖的漸層覆蓋層 */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 1;
+  }
+
+  clip-path: inset(0 0 100% 0);
+}
+
+// 修改基礎卡片內容中的標題樣式
+.cardContent {
+  position: relative;
+  z-index: 2;
+  color: white;
+
+  p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  h6 {
+    margin: 5px 0;
+    font-size: 18px;
+    // 添加多行文本截斷
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1; // 標準屬性
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; // 顯示省略號
+    max-height: 2.4em; // 大約兩行高度
+    line-height: 1.2; // 設置合適的行高
+  }
+
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+// 小卡片額外樣式設定
+.articleSmallCardContent {
+  @extend .cardContent;
+  p {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+
+  h6 {
+    font-size: 16px;
+    margin-bottom: 5px; // 確保下方有足夠間距
+    font-weight: 600; // 稍微加粗以提高可讀性
+  }
+}
+
+// 大卡片額外樣式設定
+.articleBigCardContent {
+  @extend .cardContent;
+  h6 {
+    font-size: 24px;
+    line-height: 1.2; // 調整大標題的行高
+    margin-bottom: 8px; // 大卡片需要更多間距
+  }
+}
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+
+  /* 保持原始尺寸和布局 */
+  flex: 1;
+  position: relative;
+}
+
+/* 響應式設計 */
+@media (max-width: 576px) {
+  .homepageArticleArea {
+    flex-direction: column;
+  }
+
+  .homeArticleBigCard,
+  .homeArticleSmallCard {
+    width: 100%;
+  }
+
+  .homeArticleSmallCard {
+    margin-top: 20px;
+  }
+}
+
+// 卡片容器動畫
+.cardContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+// 修改捲軸式展開動畫 (使用clip-path)
+@keyframes revealAnimation {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+// 文字內容淡入
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// 動畫類應用於現有的卡片
+.animatedCard {
+  animation: revealAnimation 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+// 內容淡入動畫
+.animatedContent {
+  animation: fadeIn 0.5s ease 0.6s forwards;
+}
+
+// 文字內容淡入動畫
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 為內容創建特定的動畫
+.animatedContent {
+  animation: contentFadeIn 0.5s ease 0.8s forwards;
+
+  p:first-child {
+    animation: contentFadeIn 0.5s ease 0.8s forwards;
+  }
+
+  h6 {
+    animation: contentFadeIn 0.5s ease 1s forwards;
+  }
+
+  p:last-child {
+    animation: contentFadeIn 0.5s ease 1.2s forwards;
+  }
+}
+
+// .desktopButton {
+//   display: block;
+// }
+
+// .mobileButton {
+//   display: none;
+// }
+
+// @media (max-width: 576px) {
+//   .homeArticleTitle{
+//     margin-bottom: 1rem;
+//   }
+//   .desktopButton {
+//     display: none;
+//   }
+//   .mobileButton {
+//     display: block;
+//     margin-bottom: 1rem; // 調整按鈕與標題的間距
+//   }
+// }

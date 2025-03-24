@@ -1,0 +1,110 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fadeInUp {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.card {
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .cardText {
+    color: #e58e41;
+    font-weight: bold;
+  }
+
+  .productTitle {
+    color: #1b3846;
+    font-weight: bold;
+  }
+
+  .productBrand {
+    color: gray;
+    margin-top: -23px;
+  }
+
+  &:hover button {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cardImgTop {
+    width: 100%;
+    height: 200px;
+    max-height: 180px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.cardbody {
+  padding: 0.5rem;
+}
+
+.btn-outline-secondary {
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+
+  &.active,
+  &:focus {
+    background-color: #1b3846;
+    color: white;
+  }
+
+  &:not(.active):hover {
+    background-color: #1b3846;
+  }
+}
+
+@media (max-width: 391px) {
+  .breadcrumb {
+    display: none;
+  }
+
+  .card {
+    button {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    &:hover {
+      box-shadow: none !important;
+    }
+
+    .productTitle {
+      color: #1b3846;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .cardText {
+      font-size: 14px;
+    }
+
+    .cardImgTop {
+      width: 85%;
+    }
+  }
+}

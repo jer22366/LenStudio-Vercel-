@@ -1,0 +1,290 @@
+.y-recommends-area-bg {
+  margin-top: 100px;
+  padding: 10px 0;
+  background-color: #eaeaea;
+}
+
+.y-recommends-area {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.y-recommends-line {
+  width: 100%;
+  border-top: 2px solid #000000;
+  margin-bottom: 50px;
+}
+
+.course-card-link {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+    .img-overlay {
+      opacity: 1;
+    }
+    .favorite-icon {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 8px;
+  color: #fff;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-title {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.teacher-name {
+  font-size: 1rem;
+  color: var(--line-color-gray);
+}
+
+.rating-student {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 5px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  p {
+    color: var(--warning-color);
+    font-weight: 500;
+  }
+}
+
+.student-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.course-price {
+  margin-top: 10px;
+
+  p {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #996a4e;
+  }
+}
+
+/* 橫向滾動容器 */
+.scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /* 隱藏滾動條但保持功能 */
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+  // &::-webkit-scrollbar {
+  //   height: 4px;
+  // }
+
+  // &::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+  //   border-radius: 10px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background: #888;
+  //   border-radius: 10px;
+  // }
+}
+
+/* 卡片項目樣式 */
+.card-item {
+  flex: 0 0 auto;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+
+  &:last-child {
+    margin-right: 5px;
+  }
+}
+
+/* 響應式設計 */
+@media (min-width: 992px) {
+  .scroll-view {
+    display: none;
+  }
+
+  .grid-view {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
+  .y-recommends-area {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .grid-view {
+    display: none;
+  }
+
+  .scroll-view {
+    display: block;
+  }
+
+  .card-item {
+    width: calc(50% - 15px); /* 顯示2張卡片 */
+  }
+}
+
+@media (max-width: 576px) {
+  .card-item {
+    width: calc(100% - 30px); /* 顯示1張卡片 */
+  }
+}
+
+// 確保大於990px時卡片橫向排列
+@media screen and (min-width: 991px) {
+  // 保持網格視圖的橫向排列
+  .grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  // 調整卡片容器寬度為25%，確保每行4張卡片
+  .grid-view .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 30px;
+  }
+
+  // 防止滾動視圖影響橫向排列
+  .scroll-view {
+    display: none !important;
+  }
+
+  // 確保卡片寬度一致性
+  .course-card {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0 !important;
+  }
+
+  // 卡片內容適應性調整
+  .card-img {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9 比例
+    overflow: hidden;
+  }
+
+  .card-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // 確保卡片內容對齊
+  .course-card-link {
+    display: block;
+    height: 100%;
+  }
+}
+
+// 中等屏幕尺寸下(768px-990px)保持兩列佈局
+@media screen and (min-width: 768px) and (max-width: 990px) {
+  .grid-view .col-lg-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+// 小屏幕下(小於768px)可以考慮單列佈局或使用滾動視圖
+@media screen and (max-width: 767px) {
+  .grid-view {
+    display: none !important;
+  }
+
+  .scroll-view {
+    display: flex !important;
+  }
+}

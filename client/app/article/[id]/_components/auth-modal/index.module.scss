@@ -1,0 +1,82 @@
+// .authModal {
+// :global {
+//   .modal-content {
+//     border-radius: 25px;
+//     border: none;
+//   }
+// }
+
+// :global(.modal-header) {
+//   border-bottom: 1px solid #f0f0f000;
+//   padding: 1rem 1.5rem;
+// }
+
+// :global(.modal-body) {
+//   padding: 2rem 2rem 3rem 2rem;
+// }
+
+// :global(.btn-primary) {
+//   background-color: #1e3c54;
+//   border-radius: 25px;
+//   &:hover {
+//     background-color: #ffffff;
+//     border: 1px solid #1e3c54;
+//     color: #1e3c54;
+//   }
+// }
+
+// :global(.btn-outline-primary) {
+//   color: #1e3c54;
+//   border-color: #1e3c54;
+//   border-radius: 25px;
+
+//   &:hover {
+//     background-color: #1e3c54;
+//     color: white;
+//   }
+// }
+// }
+
+.leftSide {
+  padding: 1rem;
+  border-radius: 25px;
+  border: 1px solid #d7d7d745;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.rightSide {
+  border-radius: 25px;
+  border: 1px solid #d7d7d745;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  input {
+    border-radius: 25px;
+  }
+}
+
+.customError {
+  background-color: #fff8f8;
+  border-left: 3px solid #d84848;
+  color: #d84848;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.loginError {
+  background-color: #fff8f8;
+  border: 1px solid #ffdbdb;
+  color: #d84848;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.errorIcon {
+  margin-right: 8px;
+  font-style: normal;
+  color: #d84848;
+}

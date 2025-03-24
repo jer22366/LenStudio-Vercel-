@@ -1,0 +1,20 @@
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  margin: 0;
+}
+
+.breadcrumbLink {
+  text-decoration: none;
+  color: #8f8f8f;
+}
+
+.breadcrumbItem + .breadcrumbItem::before {
+  content: '>';
+  color: #8f8f8f;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+

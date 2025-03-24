@@ -1,0 +1,283 @@
+.course-price-fixed {
+  position: sticky;
+  top: 104px;
+  background-color: var(--primary-color);
+  padding: 2rem 2.8rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  opacity: 0; /* 初始透明 */
+  transition: 0.3s ease-in-out; /* 只過渡透明度 */
+}
+
+/* 顯示時 */
+.course-price-fixed.show {
+  opacity: 1;
+}
+
+/* 隱藏時 */
+.course-price-fixed.hide {
+  opacity: 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--line-color-gray-light);
+  margin-bottom: 5px;
+}
+
+.discount-price {
+  color: var(--secondary-color-med);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.line {
+  border-bottom: 2px solid var(--primary-color-med);
+  margin: 1rem 0;
+}
+
+.buy-btn {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 2.5rem;
+  border-radius: 5px;
+  background-color: var(--secondary-color-med);
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  outline: none;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: var(--warning-color);
+  box-shadow: 0 0 8px var(--secondary-color-lig);
+  color: var(--white);
+  border: 2px solid var(--warning-color);
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color-med);
+  background-color: transparent;
+  color: var(--secondary-color-med);
+  padding: 8px 25px;
+}
+
+.cart-btn:hover {
+  box-shadow: 0 0 8px var(--secondary-color-lig);
+}
+
+.cart-btn p {
+  color: var(--secondary-color-med);
+  font-weight: 600;
+}
+
+.cart-btn-img {
+  width: 17px;
+  height: 17px;
+}
+
+.favorite-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color-med);
+  background-color: transparent;
+  color: var(--secondary-color-med);
+  padding: 8px 25px;
+}
+
+.favorite-btn:hover {
+  box-shadow: 0 0 8px var(--secondary-color-lig);
+}
+
+.favorite-btn p {
+  color: var(--secondary-color-med);
+  font-weight: 600;
+}
+
+.fixed-price {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.shopping-btn-fixed .buy-btn {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.shopping-btn-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.shopping-btn-flex .cart-btn {
+  justify-content: center;
+  flex: 1;
+}
+
+.shopping-btn-flex .favorite-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.refund {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
+.refund p {
+  color: var(--line-color-gray-light);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.fixed-content .content-title {
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.fixed-content .line {
+  border: 1px solid var(--line-color-gray);
+}
+
+.fixed-content .content-text img {
+  width: 17px;
+  height: 17px;
+  margin: 0 0.5rem 0 0;
+}
+
+.fixed-content ul {
+  padding: 0;
+}
+
+.fixed-content .content-text li {
+  list-style: none;
+  color: var(--white);
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .discount-price {
+    font-size: 1.5rem;
+  }
+  .original-price {
+  }
+
+  .cart-btn,
+  .favorite-btn {
+    padding: 8px 20px;
+  }
+
+  .cart-btn p {
+    display: none;
+  }
+
+  .favorite-btn p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .course-price-fixed {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 100;
+    flex: 1;
+  }
+  .fixed-price {
+    width: auto;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  .shopping-btn-fixed {
+    width: 100%;
+  }
+
+  .fixed-content {
+    display: none;
+  }
+
+  .discount-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .original-price {
+    display: none;
+  }
+
+  .refund {
+    display: none;
+  }
+
+  .shopping-btn-fixed {
+    display: flex;
+    gap: 10px;
+  }
+
+  .course-price-fixed .buy-btn {
+    background-color: var(--secondary-color-med);
+    color: var(--primary-color);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin: 0;
+
+    &:hover {
+      background-color: var(--warning-color);
+      box-shadow: 0 0 8px var(--secondary-color-lig);
+      color: var(--white);
+      border: 2px solid var(--warning-color);
+    }
+  
+  }
+
+
+  .cart-btn,
+  .favorite-btn {
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-price-fixed{
+    padding: 16px ;
+  }
+  .favorite-btn {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .cart-btn {
+    display: none !important;
+  }
+}

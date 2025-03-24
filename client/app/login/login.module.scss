@@ -1,0 +1,79 @@
+.body {
+  background-color: #F5F5F5;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marginTop {
+  margin: 100px 0;
+}
+
+.marginTop33 {
+  margin-top: 33px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.box {
+  width: 375px;
+  height: 455px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.buttonBox {
+  margin-top: 49px;
+  width: 113%;
+  height: 50px;
+  background-color: #062F4F;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 70px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 15px;
+}
+
+.inputField {
+  width: 252px;
+  height: 47px;
+  border-radius: 20px !important;
+  margin-top: 10px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666666;
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.box1 {
+  width: 224px;
+}

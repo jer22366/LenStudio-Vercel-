@@ -1,0 +1,24 @@
+.starContainer {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 5px; */
+  gap: 8px;
+}
+
+.starBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.starIcon {
+  font-size: 24px;
+  color: #e58e41;
+  transition: transform 0.2s;
+}
+
+.starIcon:hover {
+  transform: scale(1.2);
+}

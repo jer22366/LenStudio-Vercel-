@@ -1,0 +1,132 @@
+
+.section-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 2rem ;
+}
+
+.title-block {
+  width: 8px;
+  height: 35px;
+  background-color: var(--primary-color);
+}
+
+.section-detail-title h2 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.course-card-link {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.card-img img {
+  transition: transform 0.3s ease;
+}
+
+.card-img:hover img {
+  transform: scale(1.1);
+}
+
+.card-img:hover .img-overlay {
+  opacity: 1; /* 顯示遮色片 */
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-card{
+  h3{
+    font-size: 1.1rem;
+  }
+}
+
+.course-title {
+  margin-top: 15px;
+  font-size: 1.1rem;
+}
+
+.teacher-name {
+  font-size: 1rem;
+  color: var(--line-color-gray);
+}
+
+.rating-student {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 5px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating p {
+  margin: 0;
+  color: var(--warning-color);
+  font-weight: 500;
+}
+
+.rating-star {
+  color: var(--warning-color);
+}
+
+.student-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-count img {
+  width: 20px;
+  height: 20px;
+}
+
+.course-price P {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--black);
+}
+
+.load-more-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 2rem;
+}

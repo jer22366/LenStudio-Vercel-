@@ -1,0 +1,119 @@
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.asideFilter {
+  position: sticky;
+  top: 80px;
+  height: 100vh;
+  overflow-y: auto;
+  animation: fadeInLeft 0.5s ease-in-out forwards; //進場動畫
+}
+
+.filter-toggle-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1b3846;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1050;
+}
+
+.filter-toggle-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.accordionButton {
+  background-color: #ffffff !important;
+  border: none;
+  box-shadow: none !important;
+}
+
+.accordionButton:not(.collapsed) {
+  background-color: #f8f9fa !important;
+  color: #23425a !important;
+}
+
+.aside-filter,
+.sort-dropdown {
+  display: none;
+}
+
+.aside-filter.show {
+  display: block;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* 手機版篩選按鈕 */
+.filterToggleBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1b3846;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  z-index: 1050;
+}
+
+/* 手機版篩選側邊欄 */
+.mobileAsideFilter {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1100;
+  padding: 10px;
+  padding-top: 50px;
+}
+
+.mobileAsideFilter.show {
+  right: 0px;
+  width: 100%;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media (max-width: 391px) {
+  .accordion {
+    top: 20px;
+  }
+  .mobileAsideFilter {
+    top: 80px;
+  }
+}

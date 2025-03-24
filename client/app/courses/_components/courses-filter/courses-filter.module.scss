@@ -1,0 +1,144 @@
+.search-filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- 搜尋 --- */
+.course-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 22rem;
+  border: 1px solid var(--line-color-gray-light);
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.search-btn {
+  position: absolute;
+  left: 305px;
+  background: none;
+  border: none;
+  padding-bottom: 3px;
+}
+
+// /* 調整選單外觀 */
+// .custom-select {
+//   appearance: none; /* 移除瀏覽器預設樣式 */
+//   background-color: transparent; /* 移除白底 */
+//   border: none; /* 移除邊線 */
+//   padding: 10px 15px;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   width: auto; /* 自動適應內容 */
+
+//   /* 自訂箭頭 */
+//   background-image: url('/images/icon/arrow-down.svg');
+//   background-repeat: no-repeat;
+//   background-position: right 10px center;
+//   background-size: 12px;
+//   padding-right: 30px; /* 預留箭頭空間 */
+// }
+
+// /* 移除點擊時的藍色 focus 框 */
+// .custom-select:focus {
+//   outline: none; /* 移除外框 */
+//   box-shadow: none; /* 移除 Bootstrap 預設陰影 */
+// }
+
+// .custom-select option {
+//   border-radius: 10px;
+//   border: none;
+//   background: white;
+//   color: #333;
+//   font-size: 16px;
+//   padding: 10px;
+// }
+
+// .custom-select option:hover {
+//   background: #ff9800; /* 滑鼠經過時變色 */
+//   color: white;
+// }
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-toggle {
+    background-color: transparent;
+    color: var(--black);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+    z-index: 10;
+    display: none;
+
+    li {
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s ;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+
+  &.open {
+    .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-toggle .arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+/* 響應式樣式 */
+@media screen and (max-width: 1200px) {
+  .search-filter {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-filter {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-search {
+    display: none;
+  }
+  .custom-select {
+    padding-left: 0;
+  }
+}

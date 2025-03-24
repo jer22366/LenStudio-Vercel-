@@ -1,0 +1,82 @@
+.j-rtText {
+  color: black;
+}
+.j-rtpText {
+  color: #e58e41;
+}
+
+.j-brand {
+  color: #8f8f8f;
+  font-size: 12px;
+}
+
+.j-cartItemBox {
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.j-rentImg {
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.j-rentImg img {
+  width: 109px;
+  height: 89px;
+}
+
+.j-rentCameraBrand {
+  font-family: 'Noto Sans HK';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-items: center;
+}
+
+.j-rentDeadLine {
+  color: #ca6d1b;
+}
+
+.j-delBtn > button:active,
+.j-delBtnfocus > button:focus,
+.j-delBtn > button:not(.j-cartItem) {
+  border: none;
+}
+
+.j-delBtn {
+  left: 92.5%;
+}
+@media (max-width: 1400px) {
+  .j-rtText {
+    font-size: 14px;
+  }
+  .j-rentDeadLine {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1200px) {
+  .j-delBtn {
+    left: 90%;
+  }
+}
+@media (max-width: 576px) {
+  .j-delBtn {
+    left: 90%;
+  }
+  .j-rtpText {
+    font-size: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .j-rtText {
+    font-size: 13px;
+  }
+  .j-rentDeadLine {
+    font-size: 13px;
+  }
+  
+}

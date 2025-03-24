@@ -1,0 +1,399 @@
+.body {
+  background-color: #f5f5f5;
+}
+
+.marginTop {
+  margin-top: 100px;
+}
+.sidenav {
+  padding: 20px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+
+    &:hover {
+      color: #5292c5;
+    }
+  }
+}
+
+.articleCard {
+  background: white;
+  border-radius: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h4 {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .col-md-5 {
+    &:hover img {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+  }
+
+  // 確保更多按鈕的點擊事件不會觸發卡片的導航
+  .moreBtnContainer {
+    position: relative;
+    z-index: 2;
+
+    button,
+    .moreOptions {
+      pointer-events: auto;
+    }
+  }
+}
+.categoryText {
+  color: #7e7267;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.articleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.userAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.addArticleCard {
+  border: 2px dashed #7e7267;
+  border-radius: 20px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, border 0.3s;
+
+  h5 {
+    color: #7e7267;
+  }
+
+  &:hover {
+    background-color: #f8f8f8;
+    transform: translateY(-5px);
+    border: 2px dashed #666666;
+
+    h5 {
+      color: #666666;
+    }
+
+    .addButton {
+      &::before,
+      &::after {
+        background-color: #666666;
+      }
+    }
+  }
+}
+
+.more-btn {
+  border: none;
+  border-radius: 50px;
+  background: #fcfcfc00;
+  position: relative;
+
+  img {
+    display: block;
+  }
+
+  .iconHover,
+  .iconActive {
+    display: none;
+  }
+
+  &:hover {
+    .iconOrigin {
+      display: none;
+    }
+    .iconHover {
+      display: block;
+    }
+  }
+}
+.btn-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.addButton {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #d2d2d2;
+  border-radius: 50%;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #7e7267;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 2px;
+    height: 20px;
+  }
+
+  &::after {
+    width: 20px;
+    height: 2px;
+  }
+}
+
+.moreBtnContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.moreOptions {
+  display: none;
+  position: absolute;
+  bottom: 100%; // 顯示在按鈕上方
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 0px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  // 可選：增加一個箭頭指向按鈕
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+  }
+}
+
+.moreOptionDelete {
+  padding: 5px 0;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  color: #d33;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #d33;
+    color: white;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  .iconHoverDelete {
+    display: none;
+  }
+
+  &:hover {
+    .iconOriginalDelete {
+      display: none;
+    }
+    .iconHoverDelete {
+      display: block;
+    }
+  }
+}
+
+.moreBtnContainer:hover .moreOptions {
+  display: block;
+}
+
+.moreOption {
+  padding: 5px 0;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #7e7267;
+    color: white;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  .iconHover {
+    display: none;
+  }
+
+  &:hover {
+    .iconOriginal {
+      display: none;
+    }
+    .iconHover {
+      display: block;
+    }
+  }
+}
+.articleImage {
+  height: 200px;
+  margin-top: auto 0;
+  margin-bottom: auto 0;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-custom-confirm-delete {
+  background-color: #1e3c54;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 25px;
+}
+
+.btn-custom-cancel-delete {
+  background-color: #d33;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .articleContent,
+  .articleImageContainer {
+    width: 100%;
+  }
+
+  .articleCard {
+    flex-direction: column;
+  }
+
+  .articleImage {
+    height: 200px;
+    margin-top: 15px;
+  }
+}
+
+.moreBtnContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.more-btn {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.moreOptions {
+  display: none;
+  position: absolute;
+  bottom: 100%; // 上浮於按鈕上方
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  // 可加入箭頭效果（選用）
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+  }
+}
+
+.moreBtnContainer:hover .moreOptions {
+  display: block;
+}
+
+.userInfoCard {
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.userName {
+  font-weight: 600;
+  margin: 0;
+}
+
+.userStats {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.statItem {
+  text-align: center;
+  flex: 1;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7e7267;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #a5a5a5;
+  }
+}
+.statLabel {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 5px;
+}

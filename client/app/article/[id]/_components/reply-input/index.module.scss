@@ -1,0 +1,347 @@
+.y-comment-area {
+  border-radius: 25px;
+  width: 100%;
+  max-width: 100%;
+
+  input {
+    width: 100%;
+    border: 2px solid #7e726700;
+    border-radius: 10px;
+    &:focus {
+      outline: none; /* 移除預設外框 */
+      border: 2px solid #000000 !important;
+    }
+  }
+}
+
+.comment-input-responsive {
+  flex: 1;
+  min-width: 150px;
+  max-width: 100%;
+}
+
+.btn-needs-login {
+  background: #7e7267;
+  border-radius: 25px;
+  color: white;
+  border: 1px solid #ffffff00;
+  &:hover {
+    background: #ffffff;
+    color: #7e7267;
+    border: 1px solid #7e7267;
+  }
+}
+
+/* 確保在小螢幕上按鈕區域不擁擠 */
+.y-comment-area-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+
+  button {
+    width: 100%;
+    background-color: #ffffff00;
+    border: 1px solid #ffffff00;
+  }
+
+  .imageup-icon {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      content: url('/images/article/imageup-g.svg');
+    }
+
+    &.active {
+      transform: scale(1.2);
+      content: url('/images/article/imageup-w.svg');
+    }
+  }
+
+  button:nth-child(2) img {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      content: url('/images/article/gif-icon-g.svg');
+    }
+
+    &.active {
+      transform: scale(1.2);
+      content: url('/images/article/gif-icon-w.svg');
+    }
+  }
+}
+
+/* 媒體預覽區域響應式 */
+@media (max-width: 576px) {
+  .y-comment-area {
+    padding: 10px !important;
+  }
+}
+
+// 媒體預覽區域樣式
+.preview-container {
+  width: 25%;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+
+  // 響應式大小調整
+  @media (max-width: 1200px) {
+    width: 30%;
+  }
+
+  @media (max-width: 991px) {
+    width: 35%;
+  }
+
+  @media (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media (max-width: 576px) {
+    width: 45%;
+  }
+
+  @media (max-width: 390px) {
+    width: 60%;
+  }
+}
+
+.preview-item {
+  position: relative;
+  margin-bottom: 0.5rem;
+  display: flex;
+  width: 100%;
+}
+
+.preview-media {
+  width: 100%;
+  border-radius: 6px; // 減少圓角
+  display: block;
+}
+
+.preview-remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.8);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: red;
+    transform: scale(1.1);
+  }
+
+  span {
+    color: white;
+    font-size: 14px;
+    line-height: 0;
+  }
+}
+
+// 保留原有按鈕容器樣式，不做修改
+.button-container {
+  display: flex;
+  align-items: center;
+  // 保留原有樣式...
+}
+
+// 只在小螢幕下調整按鈕尺寸和間距
+@media (max-width: 768px) {
+  .action-button {
+    padding: 6px;
+    margin-left: 8px; /* 中等螢幕間距 */
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .action-button {
+    padding: 5px;
+    margin-left: 10px; /* 小螢幕間距 */
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .action-button {
+    padding: 4px;
+    margin-left: 12px; /* 極小螢幕間距 */
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+/* 小螢幕下的按鈕樣式優化 */
+@media (max-width: 768px) {
+  .y-comment-area-icons {
+    .d-flex {
+      button {
+        padding: 4px !important;
+        margin-right: 8px !important;
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .y-comment-area-icons {
+    .d-flex {
+      button {
+        padding: 3px !important;
+        margin-right: 12px !important;
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .y-comment-area-icons {
+    .d-flex {
+      button {
+        padding: 2px !important;
+        margin-right: 15px !important;
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+/* 修正按鈕樣式 - 使用全局選擇器 */
+// .y-comment-action {
+//   :global(.d-flex .action-btn) {
+//     @media (max-width: 768px) {
+//       padding: 4px !important;
+//       margin-right: 8px !important;
+
+//       img {
+//         width: 22px !important;
+//         height: 22px !important;
+//       }
+//     }
+
+//     @media (max-width: 576px) {
+//       padding: 3px !important;
+//       margin-right: 12px !important;
+
+//       img {
+//         width: 20px !important;
+//         height: 20px !important;
+//       }
+//     }
+
+//     @media (max-width: 420px) {
+//       padding: 2px !important;
+//       margin-right: 15px !important;
+
+//       img {
+//         width: 18px !important;
+//         height: 18px !important;
+//       }
+//     }
+
+//     &:last-child {
+//       margin-right: 0 !important;
+//     }
+//   }
+// }
+
+/* 增加圖標按鈕的間距 */
+// :global(.d-flex) {
+//   @media (max-width: 768px) {
+//     gap: 8px !important;
+//   }
+
+//   @media (max-width: 576px) {
+//     gap: 12px !important;
+//   }
+
+//   @media (max-width: 420px) {
+//     gap: 15px !important;
+//   }
+// }
+
+/* 直接作用於按鈕元素，不依賴類名 */
+// :global {
+//   .y-comment-area-icons .d-flex button {
+//     @media (max-width: 768px) {
+//       padding: 4px !important;
+//       margin-right: 8px !important;
+
+//       img {
+//         width: 22px !important;
+//         height: 22px !important;
+//       }
+//     }
+
+//     @media (max-width: 576px) {
+//       padding: 3px !important;
+//       margin-right: 12px !important;
+
+//       img {
+//         width: 20px !important;
+//         height: 20px !important;
+//       }
+//     }
+
+//     @media (max-width: 420px) {
+//       padding: 2px !important;
+//       margin-right: 15px !important;
+
+//       img {
+//         width: 18px !important;
+//         height: 18px !important;
+//       }
+//     }
+
+//     &:last-child {
+//       margin-right: 0 !important;
+//     }
+//   }
+// }

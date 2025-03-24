@@ -1,0 +1,117 @@
+.body {
+  background-color: #f5f5f5;
+}
+.h1 {
+  font-size: 2rem;
+}
+
+.marginTop {
+  margin-top: 100px;
+}
+
+.sidenav {
+  padding: 20px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #5292c5;
+    }
+  }
+}
+
+.orderCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.orderStatus {
+  width:100%;
+  color: #c43b45;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+}
+.orderDiscount {
+  width:100%;
+  color: #6b6b6b;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+
+}
+.orderNumber{
+  width:260px;
+  @media screen and (max-width: 768px) {
+    width: 220px;
+    
+  }
+}
+
+.productImage {
+  width: 116px;
+  height: 116px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.productLabel {
+  background-color: #5292c5;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.orderTotal {
+  padding-right: 40px ;
+  width: 145%;
+  margin-right: 1px;
+  color: #e58e41;
+  text-align: right;
+  @media screen and (max-width: 768px) {
+    text-align: right;
+    font-size: 16px;
+    
+  }
+}
+
+.productBrand {
+  color: #8f8f8f;
+  margin-bottom: 0.5rem;
+}
+
+.productBorder {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    margin-bottom: 1rem;
+    display: none;
+  }
+
+  .productDetails {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .priceGrid {
+    margin-top: 1rem;
+  }
+}

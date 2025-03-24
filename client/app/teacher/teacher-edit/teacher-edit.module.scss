@@ -1,0 +1,193 @@
+.center-content-container {
+  padding: 1rem;
+}
+
+.center-content {
+  background-color: var(--bg-color-gray);
+  padding: 2rem 5rem;
+}
+
+.nav-bar h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color-med);
+}
+
+/* --- 表格區 --- */
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray--400);
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid var(--gray--50);
+    border-radius: 50px;
+    color: var(--black);
+  }
+
+  input:focus {
+    border: 1px solid var(--white);
+    box-shadow: var(--box-shadow);
+    outline: 2px solid var(--secondary-color-lig);
+  }
+}
+
+.teacher-edit {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  margin-top: 2rem;
+  padding: 2rem 5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.half-width {
+  flex: 1;
+  min-width: 200px;
+}
+
+.required {
+  font-weight: 600;
+  color: var(--warning-color);
+  margin-left: 2px;
+}
+
+.teacher-info {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--gray--50);
+  resize: none;
+}
+
+.teacher-info:focus {
+  border: 1px solid var(--white);
+  box-shadow: var(--box-shadow);
+  outline: 2px solid var(--secondary-color-lig);
+}
+
+/* 上傳大頭照區塊 */
+
+.image-upload {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  border: 2px solid var(--bg-color-gray);
+  display: flex;
+  margin: 10px 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.image-upload img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-upload span {
+  font-size: 14px;
+  color: #999;
+}
+
+/* 滑鼠移上去時變化 */
+.image-upload:hover {
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--white);
+}
+
+/* 表單按鈕 */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.save-btn {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: var(--warning-color-dark);
+}
+
+.cancel-btn {
+  background-color: var(--gray--100);
+  color: black;
+}
+
+.cancel-btn:hover {
+  background-color: var(--gray--200);
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .center-content {
+    padding: 2rem 2rem;
+  }
+  .center-sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* 往左隱藏 */
+    width: 250px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  /* 展開時 */
+  .center-sidebar.show {
+    left: 0;
+  }
+
+  /* 內容區推開 */
+  .center-sidebar.show + .center-content {
+    margin-left: 250px;
+  }
+
+  /* 收合按鈕 */
+  .close-sidebar-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .teacher-edit {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .center-content {
+    padding: 2rem 1rem;
+  }
+}

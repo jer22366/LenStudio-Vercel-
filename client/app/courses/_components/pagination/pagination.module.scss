@@ -1,0 +1,83 @@
+.pages-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+.pages-container ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+.pages {
+  display: flex;
+  padding: 0;
+  color: var(--line-color-gray);
+}
+
+.page-arrow {
+  color: var(--line-color-gray);
+}
+
+.page-arrow:hover {
+  color: var(--black);
+}
+
+.pages li::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--line-color-gray-light);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pages li.active::after {
+  background-color: var(--black);
+  transform: scaleY(2.5);
+}
+
+.pages li:hover::after,
+.pages li .active::after {
+  background-color: var(--black);
+  transform: scaleY(2.5);
+}
+
+.pages li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  padding-bottom: 8px;
+}
+
+.page-link{
+  all: unset;
+}
+
+.page:hover,
+.page.active {
+  color: var(--black);
+}
+
+.e-button {
+  all: unset;
+  cursor: pointer;
+}
+
+.e-button:focus,
+.e-button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 576px) {
+  .pages-container {
+    display: none;
+  }
+}

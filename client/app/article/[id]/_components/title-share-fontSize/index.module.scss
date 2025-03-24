@@ -1,0 +1,115 @@
+.y-container{
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.y-tag-date{
+  margin-top: 65px;
+}
+.y-article-tag{
+  width: auto;
+  height: auto;
+  background-color: #7E7267;
+  color: #fff;
+  padding: 0.3rem 0.8rem !important;
+  font-size: 16px;
+}
+.y-share-icon-mb{
+  display: none;
+}
+.y-tag-date-share h1{
+  font-size: 48px;
+}
+.y-tag-date-share-subtitle{
+  font-size: 16px;
+  color: #7f7f7f;
+}
+
+.y-title-line{
+  border-bottom: solid 2px #000;
+  margin-bottom: 20px;
+}
+
+
+.main-image {
+  opacity: 0;
+  will-change: transform;
+}
+
+.article-image-fade {
+  animation: fadeInCenter 0.5s ease-in forwards;
+}
+
+@keyframes fadeInCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(4px);
+  }
+  25% {
+    opacity: 0.25;
+    transform: scale(0.97);
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.98);
+    filter: blur(2px);
+  }
+  75% {
+    opacity: 0.75;
+    transform: scale(0.99);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@media screen and (max-width: 990px){
+  .y-article-tag{
+    font-size: 14px;
+  }
+  .y-tag-date{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 576px){
+  .y-tag-date-share-h1{
+    font-size: 30px;
+  }
+  .y-tag-date-share-subtitle{
+    font-size: 14px;
+  }
+  .y-title-line{
+    margin-top: 25px;
+  }
+}
+
+
+@media screen and (max-width: 390px){
+  /* 文章標題+主圖區 */
+  .y-article-date{
+    font-size: 12px;
+  }
+  .y-share-icon{
+    display: none;
+  }
+  .y-share-icon-mb{
+    display: block;
+    font-size: 12px;
+    margin: 15px 0;
+  }
+  .y-tag-date-share h1{
+    font-size: 30px;
+  }
+  .y-font-size-control{
+    font-size: 12px;
+    button{
+      font-size: 12px;
+    }
+  }
+}

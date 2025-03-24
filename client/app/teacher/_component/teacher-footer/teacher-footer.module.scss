@@ -1,0 +1,61 @@
+.copyright-right-div {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 1rem 2rem 1rem 2rem;
+}
+
+.copyright-right-div a {
+  color: var(--black);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+.copyright-text {
+  margin: 0 10px;
+  font-size: 0.8rem;
+}
+
+.mobile-none {
+  margin-bottom: 1rem;
+}
+
+.copyright-text {
+  margin-bottom: 1rem;
+}
+
+/* 響應式樣式 */
+
+@media screen and (max-width: 992px) {
+  /* --- footer --- */
+  .category-nav ul {
+    gap: 10vw;
+  }
+
+  /* --- footer --- */
+  .copyright {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .copyright-right-div {
+    justify-content: center;
+    margin: 0 1rem;
+  }
+
+  .mobile-none {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* --- footer --- */
+  .footer-block {
+    margin: 2rem 0;
+  }
+
+  .copyright-text {
+    font-size: 0.7rem;
+  }
+}
