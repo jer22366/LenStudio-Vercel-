@@ -66,25 +66,25 @@ const corsOptions = {
 let sessionStore = null
 
 
-if (serverConfig.sessionStoreType === 'redis') {
-  // 使用redis記錄session
-  let redisClient = createClient({
-    url: process.env.REDIS_URL,
-  })
+// if (serverConfig.sessionStoreType === 'redis') {
+//   // 使用redis記錄session
+//   let redisClient = createClient({
+//     url: process.env.REDIS_URL,
+//   })
 
-  // 連線redis
-  redisClient.connect().catch(console.error)
+//   // 連線redis
+//   redisClient.connect().catch(console.error)
 
-  // 初始化redisStore
-  sessionStore = new RedisStore({
-    client: redisClient,
-    prefix: 'express-vercel:',
-  })
-} else {
-  // 使用檔案記錄session
-  const FileStore = sessionFileStore(session)
-  sessionStore = new FileStore({ logFn: function () { } })
-}
+//   // 初始化redisStore
+//   sessionStore = new RedisStore({
+//     client: redisClient,
+//     prefix: 'express-vercel:',
+//   })
+// } else {
+//   // 使用檔案記錄session
+//   const FileStore = sessionFileStore(session)
+//   sessionStore = new FileStore({ logFn: function () { } })
+// }
 
 const isDev = process.env.NODE_ENV === 'development'
 
