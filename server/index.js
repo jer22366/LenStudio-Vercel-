@@ -40,6 +40,7 @@ import uploadsRouter from './routes/uploads.js';
 import supportRouter from './routes/support.js'
 import { Server } from "socket.io";
 import forgot from './routes/forgot.js'
+import { createClient } from 'redis';
 
 
 // 讀取 .env 設定
